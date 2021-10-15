@@ -1,0 +1,305 @@
+Message-ID: <2718c78f3e7a15e47d7f010eadfdc5d9@localhost>
+Date: Mon, 28 Dec 2020 16:45:32 +0700
+Subject: Database errors at example.com
+From: log@example.com
+To: admin@example.com, developer@example.com
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+2020-12-28 16:45:32
+[127.0.0.1][10][k7n8f7c0jqivk7s99cuds19ti1][error][yi=
+i\db\Exception]
+PDOException: SQLSTATE[42000]: Syntax error or access vio=
+lation: 1064
+You have an error in your SQL syntax; check the manual that=
+
+corresponds to your MariaDB server version for the right syntax to use=
+
+near 'WAJIB, MIPA)' at line 1 in
+C:\xampp\htdocs\smala\vendor\yiisoft\=
+yii2\db\Command.php:1299
+Stack trace:
+#0 C:\xampp\htdocs\smala\vendor\y=
+iisoft\yii2\db\Command.php(1299):
+PDOStatement->execute()
+#1 C:\xampp\h=
+tdocs\smala\vendor\yiisoft\yii2\db\Command.php(1165):
+yii\db\Command->int=
+ernalExecute('SELECT * FROM `...')
+#2 C:\xampp\htdocs\smala\vendor\yiisof=
+t\yii2\db\Command.php(407):
+yii\db\Command->queryInternal('fetchAll', NUL=
+L)
+#3 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Query.php(248):
+yii\=
+db\Command->queryAll()
+#4 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Ac=
+tiveQuery.php(133):
+yii\db\Query->all(NULL)
+#5
+C:\xampp\htdocs\smala\=
+backend\controllers\MdNilaiController.php(98):
+yii\db\ActiveQuery->all()=
+
+#6 [internal function]:
+backend\controllers\MdNilaiController->actionC=
+reate('33', 'MIPA')
+#7
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\I=
+nlineAction.php(57):
+call_user_func_array(Array, Array)
+#8 C:\xampp\htd=
+ocs\smala\vendor\yiisoft\yii2\base\Controller.php(181):
+yii\base\InlineAc=
+tion->runWithParams(Array)
+#9 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\b=
+ase\Module.php(528):
+yii\base\Controller->runAction('create', Array)
+#1=
+0
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\web\Application.php(104):
+y=
+ii\base\Module->runAction('md-nilai/create', Array)
+#11
+C:\xampp\htdocs=
+\smala\vendor\yiisoft\yii2\base\Application.php(392):
+yii\web\Application=
+->handleRequest(Object(yii\web\Request))
+#12 C:\xampp\htdocs\smala\backen=
+d\web\index.php(23):
+yii\base\Application->run()
+#13 {main}
+
+Next y=
+ii\db\Exception: SQLSTATE[42000]: Syntax error or access
+violation: 1064 =
+You have an error in your SQL syntax; check the manual
+that corresponds t=
+o your MariaDB server version for the right syntax
+to use near 'WAJIB, MI=
+PA)' at line 1
+The SQL being executed was: SELECT * FROM `md_mata_pelajar=
+an` WHERE
+jenis_akademik in (MAPEL WAJIB, MIPA) in
+C:\xampp\htdocs\smal=
+a\vendor\yiisoft\yii2\db\Schema.php:678
+Stack trace:
+#0 C:\xampp\htdocs=
+\smala\vendor\yiisoft\yii2\db\Command.php(1304):
+yii\db\Schema->convertEx=
+ception(Object(PDOException), 'SELECT * FROM
+`...')
+#1 C:\xampp\htdocs\=
+smala\vendor\yiisoft\yii2\db\Command.php(1165):
+yii\db\Command->internalE=
+xecute('SELECT * FROM `...')
+#2 C:\xampp\htdocs\smala\vendor\yiisoft\yii2=
+\db\Command.php(407):
+yii\db\Command->queryInternal('fetchAll', NULL)
+#=
+3 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Query.php(248):
+yii\db\Com=
+mand->queryAll()
+#4 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\ActiveQu=
+ery.php(133):
+yii\db\Query->all(NULL)
+#5
+C:\xampp\htdocs\smala\backen=
+d\controllers\MdNilaiController.php(98):
+yii\db\ActiveQuery->all()
+#6 [=
+internal function]:
+backend\controllers\MdNilaiController->actionCreate('=
+33', 'MIPA')
+#7
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\InlineAc=
+tion.php(57):
+call_user_func_array(Array, Array)
+#8 C:\xampp\htdocs\sma=
+la\vendor\yiisoft\yii2\base\Controller.php(181):
+yii\base\InlineAction->r=
+unWithParams(Array)
+#9 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\Mod=
+ule.php(528):
+yii\base\Controller->runAction('create', Array)
+#10
+C:\=
+xampp\htdocs\smala\vendor\yiisoft\yii2\web\Application.php(104):
+yii\base=
+\Module->runAction('md-nilai/create', Array)
+#11
+C:\xampp\htdocs\smala\=
+vendor\yiisoft\yii2\base\Application.php(392):
+yii\web\Application->handl=
+eRequest(Object(yii\web\Request))
+#12 C:\xampp\htdocs\smala\backend\web\i=
+ndex.php(23):
+yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] =3D> 42000
+    [1] =3D> 1064
+    [2] =3D> You have =
+an error in your SQL syntax; check the manual that
+corresponds to your Ma=
+riaDB server version for the right syntax to use
+near 'WAJIB, MIPA)' at l=
+ine 1
+)
+
+2020-12-28 16:45:31
+[127.0.0.1][10][k7n8f7c0jqivk7s99cuds1=
+9ti1][info][application] $_GET =3D
+[
+    'r' =3D> 'md-nilai/create'
+ =
+   'id_siswa' =3D> '33'
+    'nama_kelas' =3D> 'MIPA 1'
+]
+
+$_POST =
+=3D []
+
+$_FILES =3D []
+
+$_COOKIE =3D [
+    'advanced-backend' =3D=
+> 'k7n8f7c0jqivk7s99cuds19ti1'
+    '_csrf-backend' =3D>
+'bd30460ed2396e=
+821fc112c7d98f673076d53383e0501b18de1698be2a26ee54a:2:{i:0;s:13:\"_csrf-bac=
+kend\";i:1;s:32:\"V1L-797ADft_Id6YTVMxuFPKPe0BX1TY\";}'
+]
+
+$_SESSION =
+=3D [
+    '__flash' =3D> []
+    'user_role' =3D> [
+        0 =3D> 'DE=
+VELOPER'
+    ]
+    'user_role_id' =3D> [
+        0 =3D> 2
+    ]
+ =
+   '__id' =3D> 10
+]
+
+$_SERVER =3D [
+    'MIBDIRS' =3D> 'C:/xampp/ph=
+p/extras/mibs'
+    'MYSQL_HOME' =3D> '\\xampp\\mysql\\bin'
+    'OPENSSL=
+_CONF' =3D> 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' =
+=3D> '\\xampp\\php'
+    'PHPRC' =3D> '\\xampp\\php'
+    'TMP' =3D> '\\x=
+ampp\\tmp'
+    'HTTP_HOST' =3D> 'localhost'
+    'HTTP_USER_AGENT' =3D> =
+'Mozilla/5.0 (Windows NT 10.0; Win64; x64;
+rv:84.0) Gecko/20100101 Firefo=
+x/84.0'
+    'HTTP_ACCEPT' =3D>
+'text/html,application/xhtml+xml,applica=
+tion/xml;q=3D0.9,image/webp,*/*;q=3D0.8'
+    'HTTP_ACCEPT_LANGUAGE' =3D> =
+'en-US,en;q=3D0.5'
+    'HTTP_ACCEPT_ENCODING' =3D> 'gzip, deflate'
+    =
+'HTTP_CONNECTION' =3D> 'keep-alive'
+    'HTTP_COOKIE' =3D> 'advanced-back=
+end=3Dk7n8f7c0jqivk7s99cuds19ti1;
+_csrf-backend=3Dbd30460ed2396e821fc112c=
+7d98f673076d53383e0501b18de1698be2a26ee54a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_cs=
+rf-backend%22%3Bi%3A1%3Bs%3A32%3A%22V1L-797ADft_Id6YTVMxuFPKPe0BX1TY%22%3B%=
+7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' =3D> '1'
+    'HTTP_CACHE_CONTR=
+OL' =3D> 'max-age=3D0'
+    'PATH' =3D>
+'C:\\PROGRA~2\\RATIONAL\\RATION~=
+1\\NUTCROOT\\bin;C:\\PROGRA~2\\RATIONAL\\RATION~1\\NUTCROOT\\bin\\x11;C:\\P=
+ROGRA~2\\RATIONAL\\RATION~1\\NUTCROOT\\mksnt;C:\\Program
+Files (x86)\\Com=
+mon Files\\Intel\\Shared
+Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle=
+\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\W=
+bem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\composer;C:\\Progr=
+am
+Files\\nodejs\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\PHP7\\;C:\\xampp\=
+\php;C:\\Program
+Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:=
+\\Program
+Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program
+F=
+iles\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files
+(x86)\\Rat=
+ional\\common;C:\\Program Files
+(x86)\\Rational\\ClearQuest;C:\\Program F=
+iles
+(x86)\\Rational\\Rose\\TopLink\\;C:\\Program Files
+(x86)\\Rational=
+\\Rational Test;C:\\Program Files\\PuTTY\\;C:\\Program
+Files\\Git\\cmd;C:=
+\\Users\\Owner\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Owner\\A=
+ppData\\Roaming\\npm;C:\\Users\\Owner\\AppData\\Local\\Microsoft\\WindowsAp=
+ps;C:\\Users\\Owner\\AppData\\Local\\Programs\\Microsoft
+VS Code\\bin;C:\=
+\Users\\Owner\\AppData\\Local\\GitHubDesktop\\bin;'
+    'SystemRoot' =3D>=
+ 'C:\\WINDOWS'
+    'COMSPEC' =3D> 'C:\\WINDOWS\\system32\\cmd.exe'
+    =
+'PATHEXT' =3D>
+'.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+=
+    'WINDIR' =3D> 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' =3D> '<address>Apa=
+che/2.4.38 (Win64)
+OpenSSL/1.1.1b PHP/7.3.3 Server at localhost Port 80</=
+address>
+'
+    'SERVER_SOFTWARE' =3D> 'Apache/2.4.38 (Win64) OpenSSL/1.=
+1.1b
+PHP/7.3.3'
+    'SERVER_NAME' =3D> 'localhost'
+    'SERVER_ADDR' =
+=3D> '127.0.0.1'
+    'SERVER_PORT' =3D> '80'
+    'REMOTE_ADDR' =3D> '12=
+7.0.0.1'
+    'DOCUMENT_ROOT' =3D> 'C:/xampp/htdocs'
+    'REQUEST_SCHEME=
+' =3D> 'http'
+    'CONTEXT_PREFIX' =3D> ''
+    'CONTEXT_DOCUMENT_ROOT' =
+=3D> 'C:/xampp/htdocs'
+    'SERVER_ADMIN' =3D> 'postmaster@localhost'
+ =
+   'SCRIPT_FILENAME' =3D> 'C:/xampp/htdocs/smala/backend/web/index.php'
+ =
+   'REMOTE_PORT' =3D> '3114'
+    'GATEWAY_INTERFACE' =3D> 'CGI/1.1'
+   =
+ 'SERVER_PROTOCOL' =3D> 'HTTP/1.1'
+    'REQUEST_METHOD' =3D> 'GET'
+    =
+'QUERY_STRING' =3D>
+'r=3Dmd-nilai%2Fcreate&id_siswa=3D33&nama_kelas=3DMIP=
+A%201'
+    'REQUEST_URI' =3D>
+'/smala/backend/web/index.php?r=3Dmd-nila=
+i%2Fcreate&id_siswa=3D33&nama_kelas=3DMIPA%201'
+    'SCRIPT_NAME' =3D> '/=
+smala/backend/web/index.php'
+    'PHP_SELF' =3D> '/smala/backend/web/inde=
+x.php'
+    'REQUEST_TIME_FLOAT' =3D> 1609148731.942
+    'REQUEST_TIME' =
+=3D> 1609148731
+]

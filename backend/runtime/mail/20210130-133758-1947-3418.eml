@@ -1,0 +1,328 @@
+Message-ID: <2c112e9f1c49ae0dd8b62bd6e61f8967@localhost>
+Date: Sat, 30 Jan 2021 13:37:58 +0700
+Subject: Database errors at example.com
+From: log@example.com
+To: admin@example.com, developer@example.com
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+2021-01-30 13:37:58
+[127.0.0.1][10][57nhs2lcilqh9crst5hqns7eml][error][yi=
+i\db\Exception]
+PDOException: SQLSTATE[42S22]: Column not found: 1054 Unk=
+nown column
+'md_nilai.id_mata_pelajaran' in 'on clause' in
+C:\xampp\htd=
+ocs\smala\vendor\yiisoft\yii2\db\Command.php:1299
+Stack trace:
+#0 C:\xa=
+mpp\htdocs\smala\vendor\yiisoft\yii2\db\Command.php(1299):
+PDOStatement->=
+execute()
+#1 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Command.php(116=
+5):
+yii\db\Command->internalExecute('SELECT `jadwal_...')
+#2 C:\xampp\h=
+tdocs\smala\vendor\yiisoft\yii2\db\Command.php(407):
+yii\db\Command->quer=
+yInternal('fetchAll', NULL)
+#3 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\=
+db\Query.php(248):
+yii\db\Command->queryAll()
+#4 C:\xampp\htdocs\smala\=
+vendor\yiisoft\yii2\db\ActiveQuery.php(133):
+yii\db\Query->all(NULL)
+#5=
+
+C:\xampp\htdocs\smala\backend\controllers\CetakKesiswaanController.php(1=
+55):
+yii\db\ActiveQuery->all()
+#6 [internal function]:
+backend\contro=
+llers\CetakKesiswaanController->actionIndexNilai()
+#7
+C:\xampp\htdocs\s=
+mala\vendor\yiisoft\yii2\base\InlineAction.php(57):
+call_user_func_array(=
+Array, Array)
+#8 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\Controlle=
+r.php(181):
+yii\base\InlineAction->runWithParams(Array)
+#9 C:\xampp\htd=
+ocs\smala\vendor\yiisoft\yii2\base\Module.php(528):
+yii\base\Controller->=
+runAction('index-nilai', Array)
+#10
+C:\xampp\htdocs\smala\vendor\yiisof=
+t\yii2\web\Application.php(104):
+yii\base\Module->runAction('cetak-kesisw=
+aan...', Array)
+#11
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\Appl=
+ication.php(392):
+yii\web\Application->handleRequest(Object(yii\web\Reque=
+st))
+#12 C:\xampp\htdocs\smala\backend\web\index.php(23):
+yii\base\Appl=
+ication->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[42S22]: Co=
+lumn not found: 1054 Unknown
+column 'md_nilai.id_mata_pelajaran' in 'on c=
+lause'
+The SQL being executed was: SELECT `jadwal_pelajaran`.* FROM
+`ja=
+dwal_pelajaran` LEFT JOIN `md_mata_pelajaran` ON
+md_mata_pelajaran.id_mat=
+a_pelajaran =3D md_nilai.id_mata_pelajaran WHERE
+`id_kelas_akademik`=3D'1=
+' GROUP BY `id_mata_pelajaran` ORDER BY
+`md_mata_pelajaran`.`jenis_akadem=
+ik`,
+`md_mata_pelajaran`.`nama_mata_pelajaran` in
+C:\xampp\htdocs\smala=
+\vendor\yiisoft\yii2\db\Schema.php:678
+Stack trace:
+#0 C:\xampp\htdocs\=
+smala\vendor\yiisoft\yii2\db\Command.php(1304):
+yii\db\Schema->convertExc=
+eption(Object(PDOException), 'SELECT
+`jadwal_...')
+#1 C:\xampp\htdocs\s=
+mala\vendor\yiisoft\yii2\db\Command.php(1165):
+yii\db\Command->internalEx=
+ecute('SELECT `jadwal_...')
+#2 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\=
+db\Command.php(407):
+yii\db\Command->queryInternal('fetchAll', NULL)
+#3=
+ C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Query.php(248):
+yii\db\Comm=
+and->queryAll()
+#4 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\ActiveQue=
+ry.php(133):
+yii\db\Query->all(NULL)
+#5
+C:\xampp\htdocs\smala\backend=
+\controllers\CetakKesiswaanController.php(155):
+yii\db\ActiveQuery->all()=
+
+#6 [internal function]:
+backend\controllers\CetakKesiswaanController->=
+actionIndexNilai()
+#7
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\In=
+lineAction.php(57):
+call_user_func_array(Array, Array)
+#8 C:\xampp\htdo=
+cs\smala\vendor\yiisoft\yii2\base\Controller.php(181):
+yii\base\InlineAct=
+ion->runWithParams(Array)
+#9 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\ba=
+se\Module.php(528):
+yii\base\Controller->runAction('index-nilai', Array)=
+
+#10
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\web\Application.php(104)=
+:
+yii\base\Module->runAction('cetak-kesiswaan...', Array)
+#11
+C:\xamp=
+p\htdocs\smala\vendor\yiisoft\yii2\base\Application.php(392):
+yii\web\App=
+lication->handleRequest(Object(yii\web\Request))
+#12 C:\xampp\htdocs\smal=
+a\backend\web\index.php(23):
+yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] =3D> 42S22
+    [1] =3D> 1054
+    [2] =3D> Unknown c=
+olumn 'md_nilai.id_mata_pelajaran' in 'on clause'
+)
+
+2021-01-30 13:37=
+:57
+[127.0.0.1][10][57nhs2lcilqh9crst5hqns7eml][info][application] $_GET =
+=3D
+[
+    'r' =3D> 'cetak-kesiswaan/index-nilai'
+    1 =3D> [
+     =
+   'class' =3D> 'form-inline'
+    ]
+]
+
+$_POST =3D [
+    '_csrf-ba=
+ckend' =3D>
+'3bo4P5bgTDkFjXdqyYi26mOUXUAU3ItMQ0d0rj8l7E6s6wgH-6MIXzS-NROP=
+v9uiVvUEN3qeuAITHR7UXmCcOg=3D=3D'
+    'option' =3D> 'Kelas'
+    'id_sis=
+wa' =3D> ''
+    'id_tahun_ajaran' =3D> '1'
+    'id_kelas_akademik' =3D>=
+ '1'
+    'semester' =3D> '1'
+    'id_tahun_ajaran_' =3D> ''
+    'kela=
+s' =3D> ''
+    'jurusan' =3D> ''
+    'semester_by_peminatan' =3D> ''
+=
+]
+
+$_FILES =3D []
+
+$_COOKIE =3D [
+    'advanced-backend' =3D> '57=
+nhs2lcilqh9crst5hqns7eml'
+    '_csrf-backend' =3D>
+'fb40fdef2a7e10eccca=
+b3894620089618add5677ed0dad9a33f73307cdd10bd7a:2:{i:0;s:13:\"_csrf-backend\=
+";i:1;s:32:\"qQ08mCDf13ByF7mH5aYwnB3NPZjzaEpt\";}'
+]
+
+$_SESSION =3D [=
+
+    '__flash' =3D> []
+    'user_role' =3D> [
+        0 =3D> 'DEVELOP=
+ER'
+    ]
+    'user_role_id' =3D> [
+        0 =3D> 2
+    ]
+    '_=
+_id' =3D> 10
+]
+
+$_SERVER =3D [
+    'MIBDIRS' =3D> 'C:/xampp/php/ext=
+ras/mibs'
+    'MYSQL_HOME' =3D> '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF=
+' =3D> 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' =3D> =
+'\\xampp\\php'
+    'PHPRC' =3D> '\\xampp\\php'
+    'TMP' =3D> '\\xampp\=
+\tmp'
+    'HTTP_HOST' =3D> 'localhost'
+    'HTTP_USER_AGENT' =3D> 'Mozi=
+lla/5.0 (Windows NT 10.0; Win64; x64;
+rv:85.0) Gecko/20100101 Firefox/85.=
+0'
+    'HTTP_ACCEPT' =3D>
+'text/html,application/xhtml+xml,application/=
+xml;q=3D0.9,image/webp,*/*;q=3D0.8'
+    'HTTP_ACCEPT_LANGUAGE' =3D> 'en-U=
+S,en;q=3D0.5'
+    'HTTP_ACCEPT_ENCODING' =3D> 'gzip, deflate'
+    'HTTP=
+_REFERER' =3D>
+'http://localhost/smala/backend/web/index.php?r=3Dcetak-ke=
+siswaan%2Findex-nilai&1%5Bclass%5D=3Dform-inline'
+    'CONTENT_TYPE' =3D>=
+ 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' =3D> '235'
+  =
+  'HTTP_ORIGIN' =3D> 'http://localhost'
+    'HTTP_CONNECTION' =3D> 'keep-=
+alive'
+    'HTTP_COOKIE' =3D> 'advanced-backend=3D57nhs2lcilqh9crst5hqns7=
+eml;
+_csrf-backend=3Dfb40fdef2a7e10ecccab3894620089618add5677ed0dad9a33f7=
+3307cdd10bd7a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A3=
+2%3A%22qQ08mCDf13ByF7mH5aYwnB3NPZjzaEpt%22%3B%7D'
+    'HTTP_UPGRADE_INSEC=
+URE_REQUESTS' =3D> '1'
+    'HTTP_CACHE_CONTROL' =3D> 'max-age=3D0'
+    =
+'PATH' =3D>
+'C:\\PROGRA~2\\RATIONAL\\RATION~1\\NUTCROOT\\bin;C:\\PROGRA~2=
+\\RATIONAL\\RATION~1\\NUTCROOT\\bin\\x11;C:\\PROGRA~2\\RATIONAL\\RATION~1\\=
+NUTCROOT\\mksnt;C:\\Program
+Files (x86)\\Common Files\\Intel\\Shared
+Fi=
+les\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\=
+\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\Wi=
+ndowsPowerShell\\v1.0\\;C:\\composer;C:\\Program
+Files\\nodejs\\;C:\\WIND=
+OWS\\System32\\OpenSSH\\;C:\\PHP7\\;C:\\xampp\\php;C:\\Program
+Files (x86=
+)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program
+Files\\Microsoft =
+SQL Server\\100\\Tools\\Binn\\;C:\\Program
+Files\\Microsoft SQL Server\\1=
+00\\DTS\\Binn\\;C:\\Program Files
+(x86)\\Rational\\common;C:\\Program Fil=
+es
+(x86)\\Rational\\ClearQuest;C:\\Program Files
+(x86)\\Rational\\Rose\=
+\TopLink\\;C:\\Program Files
+(x86)\\Rational\\Rational Test;C:\\Program F=
+iles\\PuTTY\\;C:\\Program
+Files\\Git\\cmd;C:\\Users\\Owner\\AppData\\Roam=
+ing\\Composer\\vendor\\bin;C:\\Users\\Owner\\AppData\\Roaming\\npm;C:\\User=
+s\\Owner\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Owner\\AppData\=
+\Local\\Programs\\Microsoft
+VS Code\\bin;C:\\Users\\Owner\\AppData\\Local=
+\\GitHubDesktop\\bin;'
+    'SystemRoot' =3D> 'C:\\WINDOWS'
+    'COMSPEC=
+' =3D> 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' =3D>
+'.COM;.EXE;.=
+BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' =3D> 'C:\\WINDOW=
+S'
+    'SERVER_SIGNATURE' =3D> '<address>Apache/2.4.38 (Win64)
+OpenSSL/=
+1.1.1b PHP/7.3.3 Server at localhost Port 80</address>
+'
+    'SERVER_SO=
+FTWARE' =3D> 'Apache/2.4.38 (Win64) OpenSSL/1.1.1b
+PHP/7.3.3'
+    'SERV=
+ER_NAME' =3D> 'localhost'
+    'SERVER_ADDR' =3D> '127.0.0.1'
+    'SERVE=
+R_PORT' =3D> '80'
+    'REMOTE_ADDR' =3D> '127.0.0.1'
+    'DOCUMENT_ROOT=
+' =3D> 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' =3D> 'http'
+    'CONTEXT_=
+PREFIX' =3D> ''
+    'CONTEXT_DOCUMENT_ROOT' =3D> 'C:/xampp/htdocs'
+    =
+'SERVER_ADMIN' =3D> 'postmaster@localhost'
+    'SCRIPT_FILENAME' =3D> 'C:=
+/xampp/htdocs/smala/backend/web/index.php'
+    'REMOTE_PORT' =3D> '11277'=
+
+    'GATEWAY_INTERFACE' =3D> 'CGI/1.1'
+    'SERVER_PROTOCOL' =3D> 'HTT=
+P/1.1'
+    'REQUEST_METHOD' =3D> 'POST'
+    'QUERY_STRING' =3D>
+'r=3D=
+cetak-kesiswaan%2Findex-nilai&1%5Bclass%5D=3Dform-inline'
+    'REQUEST_UR=
+I' =3D>
+'/smala/backend/web/index.php?r=3Dcetak-kesiswaan%2Findex-nilai&1=
+%5Bclass%5D=3Dform-inline'
+    'SCRIPT_NAME' =3D> '/smala/backend/web/ind=
+ex.php'
+    'PHP_SELF' =3D> '/smala/backend/web/index.php'
+    'REQUEST=
+_TIME_FLOAT' =3D> 1611988677.927
+    'REQUEST_TIME' =3D> 1611988677
+]

@@ -1,0 +1,316 @@
+Message-ID: <d0fa6de73db22140bb4610ec3848ee6e@localhost>
+Date: Wed, 06 Jan 2021 11:00:27 +0700
+Subject: Database errors at example.com
+From: log@example.com
+To: admin@example.com, developer@example.com
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+2021-01-06 11:00:27
+[127.0.0.1][1][tpcdlk3h8hgs8abdd3vbb6ouej][error][yii=
+\db\IntegrityException]
+PDOException: SQLSTATE[23000]: Integrity constrai=
+nt violation: 1048
+Column 'nilai_pengetahuan' cannot be null in
+C:\xamp=
+p\htdocs\smala\vendor\yiisoft\yii2\db\Command.php:1299
+Stack trace:
+#0 =
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Command.php(1299):
+PDOStatem=
+ent->execute()
+#1 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Command.ph=
+p(1099):
+yii\db\Command->internalExecute('INSERT INTO `md...')
+#2 C:\xa=
+mpp\htdocs\smala\vendor\yiisoft\yii2\db\Schema.php(433):
+yii\db\Command->=
+execute()
+#3 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\ActiveRecord.ph=
+p(600):
+yii\db\Schema->insert('md_nilai', Array)
+#4 C:\xampp\htdocs\sma=
+la\vendor\yiisoft\yii2\db\ActiveRecord.php(566):
+yii\db\ActiveRecord->ins=
+ertInternal(NULL)
+#5
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\BaseA=
+ctiveRecord.php(678):
+yii\db\ActiveRecord->insert(false, NULL)
+#6
+C:\=
+xampp\htdocs\smala\backend\controllers\MdNilaiController.php(165):
+yii\db=
+\BaseActiveRecord->save(false)
+#7 [internal function]:
+backend\controll=
+ers\MdNilaiController->actionSimpanValue('61', '1',
+'MIPA', '1')
+#8
+C=
+:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\InlineAction.php(57):
+call_=
+user_func_array(Array, Array)
+#9 C:\xampp\htdocs\smala\vendor\yiisoft\yii=
+2\base\Controller.php(181):
+yii\base\InlineAction->runWithParams(Array)=
+
+#10 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\Module.php(528):
+yi=
+i\base\Controller->runAction('simpan-value', Array)
+#11
+C:\xampp\htdocs=
+\smala\vendor\yiisoft\yii2\web\Application.php(104):
+yii\base\Module->run=
+Action('md-nilai/simpan...', Array)
+#12
+C:\xampp\htdocs\smala\vendor\yi=
+isoft\yii2\base\Application.php(392):
+yii\web\Application->handleRequest(=
+Object(yii\web\Request))
+#13 C:\xampp\htdocs\smala\backend\web\index.php(=
+23):
+yii\base\Application->run()
+#14 {main}
+
+Next yii\db\IntegrityE=
+xception: SQLSTATE[23000]: Integrity constraint
+violation: 1048 Column 'n=
+ilai_pengetahuan' cannot be null
+The SQL being executed was: INSERT INTO =
+`md_nilai` (`id_siswa`,
+`id_kelas`, `semester`, `id_mata_pelajaran`, `nil=
+ai_pengetahuan`,
+`nilai_keterampilan`, `status`) VALUES (61, 1, 1, 18, NU=
+LL, NULL, 1)
+in C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Schema.php:6=
+78
+Stack trace:
+#0 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Command=
+.php(1304):
+yii\db\Schema->convertException(Object(PDOException), 'INSERT=
+ INTO
+`md...')
+#1 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Command.=
+php(1099):
+yii\db\Command->internalExecute('INSERT INTO `md...')
+#2 C:\=
+xampp\htdocs\smala\vendor\yiisoft\yii2\db\Schema.php(433):
+yii\db\Command=
+->execute()
+#3 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\ActiveRecord.=
+php(600):
+yii\db\Schema->insert('md_nilai', Array)
+#4 C:\xampp\htdocs\s=
+mala\vendor\yiisoft\yii2\db\ActiveRecord.php(566):
+yii\db\ActiveRecord->i=
+nsertInternal(NULL)
+#5
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Bas=
+eActiveRecord.php(678):
+yii\db\ActiveRecord->insert(false, NULL)
+#6
+C=
+:\xampp\htdocs\smala\backend\controllers\MdNilaiController.php(165):
+yii\=
+db\BaseActiveRecord->save(false)
+#7 [internal function]:
+backend\contro=
+llers\MdNilaiController->actionSimpanValue('61', '1',
+'MIPA', '1')
+#8=
+
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\InlineAction.php(57):
+c=
+all_user_func_array(Array, Array)
+#9 C:\xampp\htdocs\smala\vendor\yiisoft=
+\yii2\base\Controller.php(181):
+yii\base\InlineAction->runWithParams(Arra=
+y)
+#10 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\Module.php(528):
+=
+yii\base\Controller->runAction('simpan-value', Array)
+#11
+C:\xampp\htdo=
+cs\smala\vendor\yiisoft\yii2\web\Application.php(104):
+yii\base\Module->r=
+unAction('md-nilai/simpan...', Array)
+#12
+C:\xampp\htdocs\smala\vendor\=
+yiisoft\yii2\base\Application.php(392):
+yii\web\Application->handleReques=
+t(Object(yii\web\Request))
+#13 C:\xampp\htdocs\smala\backend\web\index.ph=
+p(23):
+yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] =3D> 23000
+    [1] =3D> 1048
+    [2] =3D> Column 'n=
+ilai_pengetahuan' cannot be null
+)
+
+2021-01-06 11:00:27
+[127.0.0.1]=
+[1][tpcdlk3h8hgs8abdd3vbb6ouej][info][application] $_GET =3D
+[
+    'r' =
+=3D> 'md-nilai/simpan-value'
+    'id_siswa' =3D> '61'
+    'id_kelas' =
+=3D> '1'
+    'semester' =3D> '1'
+    'nama_kelas' =3D> 'MIPA 1'
+]
+=
+
+$_POST =3D []
+
+$_FILES =3D []
+
+$_COOKIE =3D [
+    'advanced-ba=
+ckend' =3D> 'tpcdlk3h8hgs8abdd3vbb6ouej'
+    '_csrf-backend' =3D>
+'f63c=
+9b223662fb67d5b46d4a9dfff98d45b7fad468dbb7061c59e758882bfd3da:2:{i:0;s:13:\=
+"_csrf-backend\";i:1;s:32:\"EKsTRNFBvMYPJhunPrg7Cf6nvdeB-hzF\";}'
+]
+
+=
+$_SESSION =3D [
+    '__flash' =3D> []
+    '__returnUrl' =3D> 'http://lo=
+calhost/cito/backend/web/index.php'
+    'user_role' =3D> [
+        0 =
+=3D> 'SYSTEM ADMINISTRATOR'
+    ]
+    'user_role_id' =3D> [
+        0=
+ =3D> 1
+    ]
+    'jenis' =3D> 2
+    '__id' =3D> 1
+    'jenis_penda=
+ftaran' =3D> 0
+]
+
+$_SERVER =3D [
+    'MIBDIRS' =3D> 'C:/xampp/php/e=
+xtras/mibs'
+    'MYSQL_HOME' =3D> '\\xampp\\mysql\\bin'
+    'OPENSSL_CO=
+NF' =3D> 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' =3D=
+> '\\xampp\\php'
+    'PHPRC' =3D> '\\xampp\\php'
+    'TMP' =3D> '\\xamp=
+p\\tmp'
+    'HTTP_HOST' =3D> 'localhost'
+    'HTTP_USER_AGENT' =3D> 'Mo=
+zilla/5.0 (Windows NT 10.0; Win64; x64;
+rv:84.0) Gecko/20100101 Firefox/8=
+4.0'
+    'HTTP_ACCEPT' =3D>
+'text/html,application/xhtml+xml,applicatio=
+n/xml;q=3D0.9,image/webp,*/*;q=3D0.8'
+    'HTTP_ACCEPT_LANGUAGE' =3D> 'en=
+-US,en;q=3D0.5'
+    'HTTP_ACCEPT_ENCODING' =3D> 'gzip, deflate'
+    'HT=
+TP_CONNECTION' =3D> 'keep-alive'
+    'HTTP_COOKIE' =3D> 'advanced-backend=
+=3Dtpcdlk3h8hgs8abdd3vbb6ouej;
+_csrf-backend=3Df63c9b223662fb67d5b46d4a9d=
+fff98d45b7fad468dbb7061c59e758882bfd3da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-=
+backend%22%3Bi%3A1%3Bs%3A32%3A%22EKsTRNFBvMYPJhunPrg7Cf6nvdeB-hzF%22%3B%7D'=
+
+    'HTTP_UPGRADE_INSECURE_REQUESTS' =3D> '1'
+    'PATH' =3D>
+'C:\\P=
+ROGRA~2\\RATIONAL\\RATION~1\\NUTCROOT\\bin;C:\\PROGRA~2\\RATIONAL\\RATION~1=
+\\NUTCROOT\\bin\\x11;C:\\PROGRA~2\\RATIONAL\\RATION~1\\NUTCROOT\\mksnt;C:\\=
+Program
+Files (x86)\\Common Files\\Intel\\Shared
+Files\\cpp\\bin\\Intel=
+64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOW=
+S;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.=
+0\\;C:\\composer;C:\\Program
+Files\\nodejs\\;C:\\WINDOWS\\System32\\OpenS=
+SH\\;C:\\PHP7\\;C:\\xampp\\php;C:\\Program
+Files (x86)\\Microsoft SQL Ser=
+ver\\100\\Tools\\Binn\\;C:\\Program
+Files\\Microsoft SQL Server\\100\\Too=
+ls\\Binn\\;C:\\Program
+Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\=
+Program Files
+(x86)\\Rational\\common;C:\\Program Files
+(x86)\\Rational=
+\\ClearQuest;C:\\Program Files
+(x86)\\Rational\\Rose\\TopLink\\;C:\\Progr=
+am Files
+(x86)\\Rational\\Rational Test;C:\\Program Files\\PuTTY\\;C:\\Pr=
+ogram
+Files\\Git\\cmd;C:\\Users\\Owner\\AppData\\Roaming\\Composer\\vendo=
+r\\bin;C:\\Users\\Owner\\AppData\\Roaming\\npm;C:\\Users\\Owner\\AppData\\L=
+ocal\\Microsoft\\WindowsApps;C:\\Users\\Owner\\AppData\\Local\\Programs\\Mi=
+crosoft
+VS Code\\bin;C:\\Users\\Owner\\AppData\\Local\\GitHubDesktop\\bin=
+;'
+    'SystemRoot' =3D> 'C:\\WINDOWS'
+    'COMSPEC' =3D> 'C:\\WINDOWS\=
+\system32\\cmd.exe'
+    'PATHEXT' =3D>
+'.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.=
+JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' =3D> 'C:\\WINDOWS'
+    'SERVER_SIG=
+NATURE' =3D> '<address>Apache/2.4.38 (Win64)
+OpenSSL/1.1.1b PHP/7.3.3 Ser=
+ver at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' =3D> 'Apache=
+/2.4.38 (Win64) OpenSSL/1.1.1b
+PHP/7.3.3'
+    'SERVER_NAME' =3D> 'local=
+host'
+    'SERVER_ADDR' =3D> '127.0.0.1'
+    'SERVER_PORT' =3D> '80'
+=
+    'REMOTE_ADDR' =3D> '127.0.0.1'
+    'DOCUMENT_ROOT' =3D> 'C:/xampp/htd=
+ocs'
+    'REQUEST_SCHEME' =3D> 'http'
+    'CONTEXT_PREFIX' =3D> ''
+  =
+  'CONTEXT_DOCUMENT_ROOT' =3D> 'C:/xampp/htdocs'
+    'SERVER_ADMIN' =3D> =
+'postmaster@localhost'
+    'SCRIPT_FILENAME' =3D> 'C:/xampp/htdocs/smala/=
+backend/web/index.php'
+    'REMOTE_PORT' =3D> '22267'
+    'GATEWAY_INTE=
+RFACE' =3D> 'CGI/1.1'
+    'SERVER_PROTOCOL' =3D> 'HTTP/1.1'
+    'REQUES=
+T_METHOD' =3D> 'GET'
+    'QUERY_STRING' =3D>
+'r=3Dmd-nilai%2Fsimpan-val=
+ue&id_siswa=3D61&id_kelas=3D1&semester=3D1&nama_kelas=3DMIPA+1'
+    'REQU=
+EST_URI' =3D>
+'/smala/backend/web/index.php?r=3Dmd-nilai%2Fsimpan-value&i=
+d_siswa=3D61&id_kelas=3D1&semester=3D1&nama_kelas=3DMIPA+1'
+    'SCRIPT_N=
+AME' =3D> '/smala/backend/web/index.php'
+    'PHP_SELF' =3D> '/smala/back=
+end/web/index.php'
+    'REQUEST_TIME_FLOAT' =3D> 1609905627.4
+    'REQU=
+EST_TIME' =3D> 1609905627
+]

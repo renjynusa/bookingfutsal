@@ -1,0 +1,314 @@
+Message-ID: <08414c11be808b71baea2eb152a2e5ce@localhost>
+Date: Sat, 30 Jan 2021 13:46:53 +0700
+Subject: Database errors at example.com
+From: log@example.com
+To: admin@example.com, developer@example.com
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+2021-01-30 13:46:53
+[127.0.0.1][10][57nhs2lcilqh9crst5hqns7eml][error][yi=
+i\db\Exception]
+PDOException: SQLSTATE[42S22]: Column not found: 1054 Unk=
+nown column
+'md_nilai.id_mata_pelajaran' in 'on clause' in
+C:\xampp\htd=
+ocs\smala\vendor\yiisoft\yii2\db\Command.php:1299
+Stack trace:
+#0 C:\xa=
+mpp\htdocs\smala\vendor\yiisoft\yii2\db\Command.php(1299):
+PDOStatement->=
+execute()
+#1 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Command.php(116=
+5):
+yii\db\Command->internalExecute('SELECT `jadwal_...')
+#2 C:\xampp\h=
+tdocs\smala\vendor\yiisoft\yii2\db\Command.php(407):
+yii\db\Command->quer=
+yInternal('fetchAll', NULL)
+#3 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\=
+db\Query.php(248):
+yii\db\Command->queryAll()
+#4 C:\xampp\htdocs\smala\=
+vendor\yiisoft\yii2\db\ActiveQuery.php(133):
+yii\db\Query->all(NULL)
+#5=
+
+C:\xampp\htdocs\smala\backend\controllers\MdNilaiController.php(144):
+=
+yii\db\ActiveQuery->all()
+#6 [internal function]:
+backend\controllers\M=
+dNilaiController->actionCreate('1', '61', '1',
+'MIPA', '1')
+#7
+C:\xam=
+pp\htdocs\smala\vendor\yiisoft\yii2\base\InlineAction.php(57):
+call_user_=
+func_array(Array, Array)
+#8 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\bas=
+e\Controller.php(181):
+yii\base\InlineAction->runWithParams(Array)
+#9 C=
+:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\Module.php(528):
+yii\base\C=
+ontroller->runAction('create', Array)
+#10
+C:\xampp\htdocs\smala\vendor\=
+yiisoft\yii2\web\Application.php(104):
+yii\base\Module->runAction('md-nil=
+ai/create', Array)
+#11
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\A=
+pplication.php(392):
+yii\web\Application->handleRequest(Object(yii\web\Re=
+quest))
+#12 C:\xampp\htdocs\smala\backend\web\index.php(23):
+yii\base\A=
+pplication->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[42S22]:=
+ Column not found: 1054 Unknown
+column 'md_nilai.id_mata_pelajaran' in 'o=
+n clause'
+The SQL being executed was: SELECT `jadwal_pelajaran`.* FROM
+=
+`jadwal_pelajaran` LEFT JOIN `md_mata_pelajaran` ON
+md_mata_pelajaran.id_=
+mata_pelajaran =3D md_nilai.id_mata_pelajaran WHERE
+`id_kelas_akademik`=
+=3D'1' GROUP BY `id_mata_pelajaran` ORDER BY
+`md_mata_pelajaran`.`jenis_a=
+kademik`,
+`md_mata_pelajaran`.`nama_mata_pelajaran` in
+C:\xampp\htdocs\=
+smala\vendor\yiisoft\yii2\db\Schema.php:678
+Stack trace:
+#0 C:\xampp\ht=
+docs\smala\vendor\yiisoft\yii2\db\Command.php(1304):
+yii\db\Schema->conve=
+rtException(Object(PDOException), 'SELECT
+`jadwal_...')
+#1 C:\xampp\htd=
+ocs\smala\vendor\yiisoft\yii2\db\Command.php(1165):
+yii\db\Command->inter=
+nalExecute('SELECT `jadwal_...')
+#2 C:\xampp\htdocs\smala\vendor\yiisoft\=
+yii2\db\Command.php(407):
+yii\db\Command->queryInternal('fetchAll', NULL)=
+
+#3 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Query.php(248):
+yii\db=
+\Command->queryAll()
+#4 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\db\Acti=
+veQuery.php(133):
+yii\db\Query->all(NULL)
+#5
+C:\xampp\htdocs\smala\ba=
+ckend\controllers\MdNilaiController.php(144):
+yii\db\ActiveQuery->all()=
+
+#6 [internal function]:
+backend\controllers\MdNilaiController->actionC=
+reate('1', '61', '1',
+'MIPA', '1')
+#7
+C:\xampp\htdocs\smala\vendor\yi=
+isoft\yii2\base\InlineAction.php(57):
+call_user_func_array(Array, Array)=
+
+#8 C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\Controller.php(181):=
+
+yii\base\InlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\smala\v=
+endor\yiisoft\yii2\base\Module.php(528):
+yii\base\Controller->runAction('=
+create', Array)
+#10
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\web\Appli=
+cation.php(104):
+yii\base\Module->runAction('md-nilai/create', Array)
+#=
+11
+C:\xampp\htdocs\smala\vendor\yiisoft\yii2\base\Application.php(392):=
+
+yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 C:\xam=
+pp\htdocs\smala\backend\web\index.php(23):
+yii\base\Application->run()
+=
+#13 {main}
+Additional Information:
+Array
+(
+    [0] =3D> 42S22
+    [1] =3D> 1054
+    [2] =3D> Unknown c=
+olumn 'md_nilai.id_mata_pelajaran' in 'on clause'
+)
+
+2021-01-30 13:46=
+:53
+[127.0.0.1][10][57nhs2lcilqh9crst5hqns7eml][info][application] $_GET =
+=3D
+[
+    'r' =3D> 'md-nilai/create'
+    'id_kelas_akademik' =3D> '1'=
+
+    'id_siswa' =3D> '61'
+    'id_kelas' =3D> '1'
+    'semester' =3D>=
+ '1'
+    'nama_kelas' =3D> 'MIPA 1'
+]
+
+$_POST =3D []
+
+$_FILES =
+=3D []
+
+$_COOKIE =3D [
+    'advanced-backend' =3D> '57nhs2lcilqh9crst=
+5hqns7eml'
+    '_csrf-backend' =3D>
+'fb40fdef2a7e10ecccab3894620089618a=
+dd5677ed0dad9a33f73307cdd10bd7a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"qQ=
+08mCDf13ByF7mH5aYwnB3NPZjzaEpt\";}'
+]
+
+$_SESSION =3D [
+    '__flash=
+' =3D> []
+    'user_role' =3D> [
+        0 =3D> 'DEVELOPER'
+    ]
+ =
+   'user_role_id' =3D> [
+        0 =3D> 2
+    ]
+    '__id' =3D> 10
+=
+]
+
+$_SERVER =3D [
+    'MIBDIRS' =3D> 'C:/xampp/php/extras/mibs'
+   =
+ 'MYSQL_HOME' =3D> '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' =3D> 'C:/xamp=
+p/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' =3D> '\\xampp\\php'=
+
+    'PHPRC' =3D> '\\xampp\\php'
+    'TMP' =3D> '\\xampp\\tmp'
+    'H=
+TTP_HOST' =3D> 'localhost'
+    'HTTP_USER_AGENT' =3D> 'Mozilla/5.0 (Windo=
+ws NT 10.0; Win64; x64;
+rv:85.0) Gecko/20100101 Firefox/85.0'
+    'HTTP=
+_ACCEPT' =3D> 'text/html, */*; q=3D0.01'
+    'HTTP_ACCEPT_LANGUAGE' =3D> =
+'en-US,en;q=3D0.5'
+    'HTTP_ACCEPT_ENCODING' =3D> 'gzip, deflate'
+    =
+'HTTP_X_CSRF_TOKEN' =3D>
+'BtOt9gjb56mCtvpSPi5iZyp1Wzbftn-Vt9YirbEFLyl3gp3=
+OZZijz7OFuCt4GQ8vHxQCQbH0TNvnjEjX0EBfXQ=3D=3D'
+    'HTTP_X_REQUESTED_WITH=
+' =3D> 'XMLHttpRequest'
+    'HTTP_CONNECTION' =3D> 'keep-alive'
+    'HT=
+TP_REFERER' =3D>
+'http://localhost/smala/backend/web/index.php?r=3Dmd-nil=
+ai%2Findex&1%5Bclass%5D=3Dform-inline'
+    'HTTP_COOKIE' =3D> 'advanced-b=
+ackend=3D57nhs2lcilqh9crst5hqns7eml;
+_csrf-backend=3Dfb40fdef2a7e10ecccab=
+3894620089618add5677ed0dad9a33f73307cdd10bd7a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22=
+_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22qQ08mCDf13ByF7mH5aYwnB3NPZjzaEpt%22%=
+3B%7D'
+    'PATH' =3D>
+'C:\\PROGRA~2\\RATIONAL\\RATION~1\\NUTCROOT\\bin=
+;C:\\PROGRA~2\\RATIONAL\\RATION~1\\NUTCROOT\\bin\\x11;C:\\PROGRA~2\\RATIONA=
+L\\RATION~1\\NUTCROOT\\mksnt;C:\\Program
+Files (x86)\\Common Files\\Intel=
+\\Shared
+Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath=
+;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\=
+\System32\\WindowsPowerShell\\v1.0\\;C:\\composer;C:\\Program
+Files\\node=
+js\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\PHP7\\;C:\\xampp\\php;C:\\Program=
+
+Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program
+File=
+s\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program
+Files\\Microsoft =
+SQL Server\\100\\DTS\\Binn\\;C:\\Program Files
+(x86)\\Rational\\common;C:=
+\\Program Files
+(x86)\\Rational\\ClearQuest;C:\\Program Files
+(x86)\\Ra=
+tional\\Rose\\TopLink\\;C:\\Program Files
+(x86)\\Rational\\Rational Test;=
+C:\\Program Files\\PuTTY\\;C:\\Program
+Files\\Git\\cmd;C:\\Users\\Owner\\=
+AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Owner\\AppData\\Roaming\=
+\npm;C:\\Users\\Owner\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Ow=
+ner\\AppData\\Local\\Programs\\Microsoft
+VS Code\\bin;C:\\Users\\Owner\\A=
+ppData\\Local\\GitHubDesktop\\bin;'
+    'SystemRoot' =3D> 'C:\\WINDOWS'=
+
+    'COMSPEC' =3D> 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' =3D>=
+
+'.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' =
+=3D> 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' =3D> '<address>Apache/2.4.38 (W=
+in64)
+OpenSSL/1.1.1b PHP/7.3.3 Server at localhost Port 80</address>
+'=
+
+    'SERVER_SOFTWARE' =3D> 'Apache/2.4.38 (Win64) OpenSSL/1.1.1b
+PHP/7=
+.3.3'
+    'SERVER_NAME' =3D> 'localhost'
+    'SERVER_ADDR' =3D> '127.0.=
+0.1'
+    'SERVER_PORT' =3D> '80'
+    'REMOTE_ADDR' =3D> '127.0.0.1'
+ =
+   'DOCUMENT_ROOT' =3D> 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' =3D> 'http=
+'
+    'CONTEXT_PREFIX' =3D> ''
+    'CONTEXT_DOCUMENT_ROOT' =3D> 'C:/xam=
+pp/htdocs'
+    'SERVER_ADMIN' =3D> 'postmaster@localhost'
+    'SCRIPT_F=
+ILENAME' =3D> 'C:/xampp/htdocs/smala/backend/web/index.php'
+    'REMOTE_P=
+ORT' =3D> '11648'
+    'GATEWAY_INTERFACE' =3D> 'CGI/1.1'
+    'SERVER_PR=
+OTOCOL' =3D> 'HTTP/1.1'
+    'REQUEST_METHOD' =3D> 'GET'
+    'QUERY_STRI=
+NG' =3D>
+'r=3Dmd-nilai%2Fcreate&id_kelas_akademik=3D1&id_siswa=3D61&id_ke=
+las=3D1&semester=3D1&nama_kelas=3DMIPA+1'
+    'REQUEST_URI' =3D>
+'/smal=
+a/backend/web/index.php?r=3Dmd-nilai%2Fcreate&id_kelas_akademik=3D1&id_sisw=
+a=3D61&id_kelas=3D1&semester=3D1&nama_kelas=3DMIPA+1'
+    'SCRIPT_NAME' =
+=3D> '/smala/backend/web/index.php'
+    'PHP_SELF' =3D> '/smala/backend/w=
+eb/index.php'
+    'REQUEST_TIME_FLOAT' =3D> 1611989213.78
+    'REQUEST_=
+TIME' =3D> 1611989213
+]
