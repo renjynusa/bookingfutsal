@@ -191,7 +191,7 @@ return [
         ],
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=dbfutsal',
+            'dsn' => 'mysql:host=localhost;dbname=bookingfutsal',
             // 'dsn' => 'mysql:host=localhost;dbname=akuntansi_datacoba',
             'username' => 'root',
             'password' => '',
