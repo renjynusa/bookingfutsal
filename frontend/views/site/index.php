@@ -47,7 +47,8 @@ use yii\helpers\Html;
 
 <body>
 	
-	<section id="slider"><!--slider-->
+	<section id="slider">
+		<!--slider-->
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -62,9 +63,9 @@ use yii\helpers\Html;
 							<div class="item active">
 								<div class="col-sm-6">
 									<h1><span>Booking</span>-Futsal</h1>
-									<h2>Lapangan Futsal</h2>
-									<p>Aplikasi penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h2>Booking Lapangan Futsal</h2>
+									<p>Website penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</p>
+									<?= Html::a('Daftar Sekarang !',['site/signup'], ['class' => 'btn btn-lg btn-primary']) ?>
 								</div>
 								<div class="col-sm-6">
 									<img src="images/home/futsal3.jpg" class="girl img-responsive" alt="" />
@@ -73,9 +74,9 @@ use yii\helpers\Html;
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-                                <h1><span>Booking</span>-Futsal</h1>
+                  <h1><span>Booking</span>-Futsal</h1>
 									<h2>Lapangan Futsal</h2>
-									<p>Aplikasi penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</p>
+									<p>Lihat daftar lapangan yang dapat di booking sekarang juga. </p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
@@ -86,9 +87,9 @@ use yii\helpers\Html;
 							
 							<div class="item">
 								<div class="col-sm-6">
-                                <h1><span>Booking</span>-Futsal</h1>
-									<h2>Lapangan Futsal</h2>
-									<p>Aplikasi penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</p>
+                  <h1><span>Booking</span>-Futsal</h1>
+									<h2>Event Kejuaran</h2>
+									<p>Kami mengadakan event - event kejuaran dimana anda dapat mendaftarkan tim anda dan dapatkan hadiah berupa uang tunai jutaan rupiah !</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
@@ -110,7 +111,8 @@ use yii\helpers\Html;
 				</div>
 			</div>
 		</div>
-	</section><!--/slider-->
+	</section>
+	<!--/slider-->
 	
     <!-- ======= About Section ======= -->
     <!-- <section id="about" class="about section-bg">
@@ -151,7 +153,7 @@ use yii\helpers\Html;
         </div>
 
       </div>
-    </section> -->
+    </section>
     <!-- End About Section -->
 
      <!-- ======= Services Section ======= -->
@@ -160,8 +162,8 @@ use yii\helpers\Html;
 
         <div class="section-title">
           <h2 data-aos="fade-in">Lapangan Futsal</h2>
-          <h5>Aplikasi penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</h5>
-        </div>
+          <!-- <h5>Aplikasi penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</h5>
+ -->        </div>
 
         <div class="row">
           <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-right">
@@ -172,7 +174,7 @@ use yii\helpers\Html;
               <div class="card-body">
                 <h5 class="card-title"><a href="">Lapangan Futsal Vinyl</a></h5>
                 <p class="card-text">Lapangan futsal vinyl ini biasa disebut dengan rubber karena bahan dasarnya menyerupai karet yang permukaanya lembut.  Jenis lapangan futsal yang satu ini merupakan yang paling banyak disukai oleh penggemar olahraga futsal. Hal tersebut dikarenakan bahannya yang empuk sehingga membuat kita lebih mudah dalam melakukan aksi-aksi penyelamatan terlebih bagi mereka yang suka diving.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                <!-- <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div> -->
               </div>
             </div>
           </div>
@@ -184,7 +186,7 @@ use yii\helpers\Html;
               <div class="card-body">
                 <h5 class="card-title"><a href="">Lapangan Futsal Taraflex</a></h5>
                 <p class="card-text">Jenis lapangan ini sekilas hampir sama dengan Parquette tetapi ini bahannya dari polyethylen atau biji plastik yang dipadatkan. Meskipun dari bahan plastik tetapi lapangan ini keset dan enak digunakan, sehingga tidak mudah terjatuh. Jenis lapangan ini juga sudah banyak sekali di Indonesia.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                <!-- <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div> -->
               </div>
             </div>
 
@@ -197,7 +199,7 @@ use yii\helpers\Html;
               <div class="card-body">
                 <h5 class="card-title"><a href="">Lapangan Futsal Rumput Sintetis</a></h5>
                 <p class="card-text">Jenis lapangan ini mungkin yang paling populer di Indonesia. Lapangan rumput futsal ini sangat banyak ditemui hampir di setiap wilayah kota di Indonesia. Rumput sintetis ini sebenarnya diperuntukkan untuk lapangan indoor soccer bukan untuk futsal. Jenis lapangan ini digunakan hanya untuk hiburan saja bukan untuk tujuan prestasi walaupun diantara kita mungkin pernah menemui kompetisi menggunakan lapangan rumput sintetis ini. </p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                <!-- <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div> -->
               </div>
             </div>
           </div>
@@ -209,16 +211,20 @@ use yii\helpers\Html;
               <div class="card-body">
                 <h5 class="card-title"><a href="">Lapangan Futsal Semen</a></h5>
                 <p class="card-text">Lapangan jenis ini biasanya adalah lapangan outdoor atau di luar ruangan dan mudah ditemui terutama di daerah pinggiran kota besar. Hal ini dikarenakan nilainya yang ekonomis serta daya tahan yang lama.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                <!-- <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div> -->
               </div>
             </div>
           </div>
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section>
+    <!-- End Services Section -->
 					
-					<div class="recommended_items"><!--recommended_items-->
+
+
+					<div class="recommended_items">
+						<!--recommended_items-->
 						<h2 class="title text-center">recommended</h2>
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -231,7 +237,18 @@ use yii\helpers\Html;
 													<img src="images/home/lp1.jpg" alt="" />
 													<h2>Futsal Vinyl</h2>
 													<p>Booking E-Futsal</p>
-                                                    <?= Html::a('Booking', ['site/login'], ['class' => 'btn btn-success btn-default add-to-cart']); ?>
+                          <?php if (Yii::$app->user->isGuest) { ?>
+
+									        
+
+									            <p><?= Html::a('Mulai Konsultasi', ['site/login'], ['class' => 'btn btn-lg btn-success' ]) ?></p>
+									            
+									        <?php } else { ?>
+
+									        
+									            <p><?= Html::a('Mulai Konsultasi', ['site/lapangan'], ['class' => 'btn btn-lg btn-success' ]) ?></p>
+
+									        <?php } ?>
 												</div>
 												
 											</div>
@@ -314,84 +331,11 @@ use yii\helpers\Html;
 								<i class="fa fa-angle-right"></i>
 							  </a>			
 						</div>
-					</div><!--/recommended_items-->
-					
-				</div>
-			</div>
-		</div>
-	</section>
+					</div>
+					<!--/recommended_items-->
+
 
     
-	
-	  <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <h5>Aplikasi penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</h5>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6">
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="info-box" data-aos="fade-up">
-                  <i class="bx bx-map"></i>
-                  <h3>Our Address</h3>
-                  <p>Jl. Menoreh Raya, Sampangan, Kota Semarang</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>klikgss@gmail.com</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-phone-call"></i>
-                  <h3>Call Us</h3>
-                  <p>0896-6830-3824</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6 mt-4 mt-lg-0">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form w-100" data-aos="fade-up">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
 
 
   <!-- ======= Footer ======= -->
@@ -403,18 +347,18 @@ use yii\helpers\Html;
 
         <div class="row  justify-content-center">
           <div class="col-lg-6">
-            <h3>Booking Futsal GSS</h3>
-            <p>Futsal GSS adalah tempat futsal yang sangat recommended dan bertempat di tengah-tengah wilayah Kota Semarang. Lapangan ini juga berbahan dasar rumput sintetis, sehingga ketika mau bermain futsal dengan tanpa alas kaki juga bisa dilakukan dan tidak akan terasa panas.</p>
+            <h3>BOOKING FUTSAL BY RUDI</h3>
+            <p>WEBSITE INI DI BUAT UNTUK MEMENUHI SYARAT KELULUSAN S1</p>
           </div>
         </div>
 
-        <div class="row footer-newsletter justify-content-center">
+        <!-- <div class="row footer-newsletter justify-content-center">
           <div class="col-lg-6">
             <form action="" method="post">
               <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
             </form>
           </div>
-        </div>
+        </div> -->
 
         <div class="social-links">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -427,7 +371,8 @@ use yii\helpers\Html;
       </div>
     </div>
 
-  </footer><!-- End Footer -->
+  </footer>
+  <!-- End Footer -->
 
 
 

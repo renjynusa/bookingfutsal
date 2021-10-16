@@ -54,104 +54,50 @@ $this->params['breadcrumbs'][] = $this->title;
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
-
-    <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
-                </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
-     </div>
-
-          <!-- ======= Contact Section ======= -->
       <section id="contact" class="contact section-bg">
-      <div class="container" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Contact</h2>
-          <h5>Aplikasi penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</h5>
-        </div>
+          <div class="section-title">
+            <h2>...::: LOGIN :::...</h2>
+            <h5>Login terlebih dulu agar anda dapat mengakses atau melakukan order booking lapangan.</h5>
+          </div>
 
-        <div class="row">
-
-          <div class="col-lg-6">
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="info-box" data-aos="fade-up">
-                  <i class="bx bx-map"></i>
-                  <h3>Our Address</h3>
-                  <p>Jl. Menoreh Raya, Sampangan, Kota Semarang</p>
+          <div class="row">
+            <div class="col-lg-6">
+              <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+              <div class="row">
+                <div class="col-md-12">
+                  <?= $form->field($model, 'username')->textInput()->label('Email') ?>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>klikgss@gmail.com</p>
+                <div>
+                  <br>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-phone-call"></i>
-                  <h3>Call Us</h3>
-                  <p>0896-6830-3824</p>
+                <div class="col-md-12">
+                  <?= $form->field($model, 'password')->passwordInput() ?>
+                </div>
+                <div class="col-md-12">
+                  <?= Html::submitButton('LOGIN', ['class' => 'btn btn-info col-lg-3 mt-4 mt-lg-0']) ?>
                 </div>
               </div>
             </div>
+            
+            <?php ActiveForm::end(); ?>
 
           </div>
 
-          <div class="col-lg-6 mt-4 mt-lg-0">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form w-100" data-aos="fade-up">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+          <br>
+
+          <div class="row">
+            <div class="col-md-12">
+              <h5>Belum punya akun ? <?= Html::a('Register here...', ['site/signup']) ?></h5>
+            </div>
           </div>
 
         </div>
+      </section>
 
-      </div>
-    </section><!-- End Contact Section -->
+      
 
-</body>
 
 
   <!-- Vendor JS Files -->

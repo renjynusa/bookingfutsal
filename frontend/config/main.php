@@ -6,9 +6,48 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
+function tanggal_indo($tanggal, $cetak_hari = false)
+{
+    $hari = array(
+        1 =>    'Senin',
+        'Selasa',
+        'Rabu',
+        'Kamis',
+        'Jumat',
+        'Sabtu',
+        'Minggu'
+    );
+
+    $bulan = array(
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $split    = explode('-', $tanggal);
+    $tgl_indo = $split[2] . ' ' . $bulan[(int) $split[1]] . ' ' . $split[0];
+
+    if ($cetak_hari) {
+        $num = date('N', strtotime($tanggal));
+        return $hari[$num] . ', ' . $tgl_indo;
+    }
+    return $tgl_indo;
+}
+
 return [
     'id' => 'app-frontend',
+    'name' => 'BOOKING FUTSAL',
     'basePath' => dirname(__DIR__),
+    'timeZone' => 'Asia/Jakarta',
+    'language' => 'id',
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
@@ -16,9 +55,17 @@ return [
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'frontend\models\Login',
+            'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+        ],
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=bookingfutsal',
+            // 'dsn' => 'mysql:host=localhost;dbname=akuntansi_datacoba',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
