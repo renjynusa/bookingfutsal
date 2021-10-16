@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\models;
+namespace frontend\models;
 
 use Yii;
 
@@ -31,7 +31,7 @@ class TblOrder extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['kode', 'tgl_order','tgl_booking','jumlah_jam', 'time_start', 'time_end', 'total_bayar', 'status'], 'required'],
+            [['kode', 'id_detail_lapangan','tgl_booking','jumlah_jam', 'time_start', 'time_end'], 'required'],
             [['tgl_order','tgl_booking', 'time_start', 'time_end'], 'safe'],
             [['total_bayar', 'jumlah_jam'], 'integer'],
             [['status'], 'string'],

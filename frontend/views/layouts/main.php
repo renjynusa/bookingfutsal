@@ -45,6 +45,10 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Event Kejuaraan', 'url' => ['/site/event']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+
+        $menuItems[] = ['label' => 'Daftar Lapangan', 'url' => ['/site/lapangan']];
+        $menuItems[] = ['label' => 'Event Kejuaraan', 'url' => ['/site/event']];
+        $menuItems[] = ['label' => 'Daftar Booking ku', 'url' => ['/site/daftar-booking']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
             . Html::submitButton(

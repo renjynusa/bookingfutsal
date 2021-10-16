@@ -6,9 +6,9 @@
 
 use yii\bootstrap\Html;
 use yii\bootstrap\ActiveForm;
-use frontend\models\TblLapangan;
+use frontend\models\TblLapanganDetail;
 
-$this->title = 'Daftar Lapangan';
+$this->title = 'Detail Lapangan';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -60,51 +60,73 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="container">
 
         <div class="section-title">
-          <h2 data-aos="fade-in">Lapangan Futsal</h2>
+          <h2 data-aos="fade-in">Lapangan Futsal <?= $model->nama_lapangan ?></h2>
         </div>
 
-        <div class="row">
+        <!-- <div class="row"> -->
+          <body>
+            <div data-aos="fade-top" style="width:800px; margin:0 auto;">
+              <div class="card">
+                <div class="card-img">
+                  <img src="assets/img/lp1.jpg" alt="...">
+                </div>
+                <div class="card-body">
+                  <div class="section-title">
+                    <h2 data-aos="fade-in">DAFTAR LAPANGAN</h2>
+                  </div>
 
-          <?php 
+                  <table width="100%">
 
-            $daftar = TblLapangan::find()->all();
+                    <?php
 
-            foreach ($daftar as $key => $value) {
-            
-            $gg = $value->id;
+                      $detail = TblLapanganDetail::find()->where(['id_lapangan' => $_GET['id']])->all();
 
-            if ($gg % 2 == 0)
-            {
-              $fade = "fade-left";
-            } 
-            else 
-            {
-              $fade = "fade-right";
-            }
+                      foreach ($detail as $key => $value) {
+                        
+                    ?>
+                      <tr>
+                        <th>
+                          <?= $value->nama_detail ?>
+                        </th>
+                        <th>
+                          <?php if (Yii::$app->user->isGuest) { ?>
+                            <?= Html::a('Booking', ['site/login'], ['class' => 'btn-booking btn-lg btn-primary btn-block' ]) ?>
+                                
+                          <?php } else { ?>
+                            <?= Html::a('Booking', ['site/booking', 'id_detail' => $value->id_detail], ['class' => 'btn-booking btn-lg btn-primary btn-block']) ?>
 
-          ?>
+                          <?php } ?>
+                        </th>
+                      </tr>
+                    <?php } ?>
+                  </table>
 
-          <div class="col-md-6 d-flex align-items-stretch" data-aos="<?php echo $fade ?>">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/lp1.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><?= Html::a($value->nama_lapangan, ['site/detail-lapangan', 'id' => $value->id]) ?></h5>
-                <p class="card-text">Lokasi : <?= $value->tempat ?></p>
-                <p class="card-text">Harga Sewa / Jam : Rp. <?= number_format($value->harga_sewa) ?></p>
-                <p class="card-text">Jenis lapangan : <?= $value->jenis ?></p>
+                </div>
               </div>
             </div>
-          </div>
-
-        <?php } ?>
-
+          </body>
+          
          
-        </div>
+        <!-- </div> -->
 
       </div>
     </section>
+
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 20px;
+      }
+
+      .btn-booking {
+        margin-top: 0px;
+        background: #FE980F;
+        border-radius: 0;
+      }
+    </style>
 
 
 

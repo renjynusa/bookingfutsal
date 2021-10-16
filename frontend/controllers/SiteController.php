@@ -14,6 +14,9 @@ use frontend\models\Login;
 // use frontend\models\PasswordResetRequestForm;
 // use frontend\models\ResetPasswordForm;
 use frontend\models\TblPelanggan;
+use frontend\models\TblLapangan;
+use frontend\models\TblLapanganDetail;
+use frontend\models\TblOrder;
 // use frontend\models\ContactForm;
 
 /**
@@ -113,41 +116,60 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return mixed
-     */
-    // public function actionContact()
-    // {
-    //     $model = new ContactForm();
-    //     if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-    //         if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-    //             Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-    //         } else {
-    //             Yii::$app->session->setFlash('error', 'There was an error sending your message.');
-    //         }
-
-    //         return $this->refresh();
-    //     } else {
-    //         return $this->render('contact', [
-    //             'model' => $model,
-    //         ]);
-    //     }
-    // }
-
-
-  
-
-
-    /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
     public function actionLapangan()
     {
         return $this->render('lapangan');
+    }
+
+    public function actionDetailLapangan($id)
+    {
+        $model = TblLapangan::findOne($id);
+
+        return $this->render('detail-lapangan', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionBooking($id_detail)
+    {
+        $model = TblLapanganDetail::findOne($id_detail);
+
+        $karakter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+        $shuffle  = 'KB-'. date('ymd') .'-'. substr(str_shuffle($karakter), 0, 7);
+        // echo ORD.$shuffle;
+
+
+        if (Yii::$app->request->get('action') == 'booking') {
+
+
+            $tagihan = $model->lapangan->harga_sewa * Yii::$app->request->post('jam');
+            // echo Yii::$app->user->id;; exit();
+
+            $order = new TblOrder();
+
+            $order->id_detail_lapangan = $id_detail;
+            $order->user_id = Yii::$app->user->id;
+            $order->kode = Yii::$app->request->post('kode');
+            $order->nama = Yii::$app->request->post('name');
+            $order->telp = Yii::$app->request->post('number');
+            $order->jumlah_jam = Yii::$app->request->post('jam');
+            $order->tgl_order = date('Y-m-d');
+            $order->tgl_booking = Yii::$app->request->post('date');
+            $order->time_start = Yii::$app->request->post('start');
+            $order->time_end = Yii::$app->request->post('end');
+            $order->total_bayar = $tagihan;
+            $order->status = 'pending';
+            $order->save(false);
+
+            return $this->redirect(['site/daftar-booking']);
+
+        }
+
+
+        return $this->render('booking', [
+            'model' => $model,
+            'shuffle' => $shuffle,
+        ]);
     }
 
     public function actionEvent()
@@ -155,11 +177,19 @@ class SiteController extends Controller
         return $this->render('event');
     }
 
-    /**
-     * Signs user up.
-     *
-     * @return mixed
-     */
+    public function actionDaftarBooking()
+    {
+        $model = TblOrder::find()->where(['user_id' => Yii::$app->user->id])->all();
+        $count = TblOrder::find()->where(['user_id' => Yii::$app->user->id])->count();
+
+        echo $count;
+
+        return $this->render('daftar-booking', [
+            'model' => $model,
+            'count' => $count,
+        ]);
+    }
+
     public function actionSignup()
     {
         $model = new TblPelanggan();

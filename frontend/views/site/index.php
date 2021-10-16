@@ -1,5 +1,10 @@
 <?php
 use yii\helpers\Html;
+use frontend\models\TblLapangan;
+
+
+$this->title = 'Home';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <head>
@@ -7,7 +12,6 @@ use yii\helpers\Html;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -229,99 +233,79 @@ use yii\helpers\Html;
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
-								<div class="item active">	
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/lp1.jpg" alt="" />
-													<h2>Futsal Vinyl</h2>
-													<p>Booking E-Futsal</p>
-                          <?php if (Yii::$app->user->isGuest) { ?>
+								<div class="item active">
+									<?php 
 
-									        
+				            $daftar = TblLapangan::find()->where(['status' => 'aktif'])->limit(3)->all();
 
-									            <p><?= Html::a('Mulai Konsultasi', ['site/login'], ['class' => 'btn btn-lg btn-success' ]) ?></p>
-									            
-									        <?php } else { ?>
+				            foreach ($daftar as $key => $value) {
+				            
+				          ?>
 
-									        
-									            <p><?= Html::a('Mulai Konsultasi', ['site/lapangan'], ['class' => 'btn btn-lg btn-success' ]) ?></p>
+										<div class="col-sm-4">
+											<div class="product-image-wrapper">
+												<div class="single-products">
+													<div class="productinfo text-center">
+														<img src="images/home/lp1.jpg" alt="" />
+														<h2><?= $value->nama_lapangan ?></h2>
+														<p>Booking <?= $value->nama_lapangan ?></p>
 
-									        <?php } ?>
+	                           <?php if (Yii::$app->user->isGuest) { ?>
+
+										        
+
+										            <p><?= Html::a('Booking', ['site/login'], ['class' => 'btn btn-lg btn-success' ]) ?></p>
+										            
+										        <?php } else { ?>
+
+										        
+										            <p><?= Html::a('Booking', ['site/detail-lapangan' , 'id' => $value->id], ['class' => 'btn btn-lg btn-success' ]) ?></p>
+
+										        <?php } ?>
+													</div>
+													
 												</div>
-												
 											</div>
 										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/lp2.jpg" alt="" />
-													<h2>Futsal Taraflex</h2>
-													<p>Booking E-Futsal</p>
-                                                    <?= Html::a('Booking', ['site/login'], ['class' => 'btn btn-success btn-default add-to-cart']); ?>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/lp3.jpg" alt="" />
-													<h2>Futsal Parquette</h2>
-													<p>Booking E-Futsal</p>
-                                                    <?= Html::a('Booking', ['site/login'], ['class' => 'btn btn-success btn-default add-to-cart']); ?>
-												</div>
-												
-											</div>
-										</div>
-									</div>
+
+									<?php } ?>
 								</div>
+
 								<div class="item">	
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/lp2.jpg" alt="" />
-													<h2>Futsal Rumput Sintetis</h2>
-													<p>Booking E-Futsal</p>
-                                                    <?= Html::a('Booking', ['site/login'], ['class' => 'btn btn-success btn-default add-to-cart']); ?>
+									<?php 
+
+				            $daftar = TblLapangan::find()->where(['status' => 'aktif'])->andWhere('id > 3')->all();
+
+				            foreach ($daftar as $key => $value) {
+				            
+				          ?>
+										<div class="col-sm-4">
+											<div class="product-image-wrapper">
+												<div class="single-products">
+													<div class="productinfo text-center">
+														<img src="images/home/lp2.jpg" alt="" />
+														<h2><?= $value->nama_lapangan ?></h2>
+														<p>Booking <?= $value->nama_lapangan ?></p>
+
+	                           <?php if (Yii::$app->user->isGuest) { ?>
+
+										        
+
+										            <p><?= Html::a('Booking', ['site/login'], ['class' => 'btn btn-lg btn-success' ]) ?></p>
+										            
+										        <?php } else { ?>
+
+										        
+										            <p><?= Html::a('Booking', ['site/detail-lapangan' , 'id' => $value->id], ['class' => 'btn btn-lg btn-success' ]) ?></p>
+
+										        <?php } ?>
+													</div>
+													
 												</div>
-												
 											</div>
 										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/lp3.jpg" alt="" />
-													<h2>Futsal Karpet Plastik</h2>
-													<p>Booking E-Futsal</p>
-                                                    <?= Html::a('Booking', ['site/login'], ['class' => 'btn btn-success btn-default add-to-cart']); ?>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/lp1.jpg" alt="" />
-													<h2>Futsal Semen</h2>
-													<p>Booking E-Futsal</p>
-                                                    <?= Html::a('Booking', ['site/login'], ['class' => 'btn btn-success btn-default add-to-cart']); ?>
-													<!-- <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a> -->
-												</div>
-												
-											</div>
-										</div>
-									</div>
+
+									<?php } ?>
 								</div>
 							</div>
 							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">

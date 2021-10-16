@@ -5,10 +5,11 @@
 /* @var $model \frontend\models\SignupForm */
 
 use yii\bootstrap\Html;
-use yii\bootstrap\ActiveForm;
-use frontend\models\TblLapangan;
+use kartik\form\ActiveForm;
+use kartik\date\DatePicker;
+use frontend\models\TblOrder;
 
-$this->title = 'Daftar Lapangan';
+$this->title = 'Booking Lapangan';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -17,7 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -55,63 +55,108 @@ $this->params['breadcrumbs'][] = $this->title;
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-
-      <section id="services" class="services section-bg">
-      <div class="container">
+     
+    
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2 data-aos="fade-in">Lapangan Futsal</h2>
+          <h2>DAFTAR BOOKING KU</h2>
+          <!-- <h5>Sebelum booking lapangan pastikan informasi anda benar dan tidak bertabrakan dengan jadwal yang sudah tertera !</h5> -->
         </div>
 
-        <div class="row">
-
-          <?php 
-
-            $daftar = TblLapangan::find()->all();
-
-            foreach ($daftar as $key => $value) {
-            
-            $gg = $value->id;
-
-            if ($gg % 2 == 0)
-            {
-              $fade = "fade-left";
-            } 
-            else 
-            {
-              $fade = "fade-right";
-            }
-
-          ?>
-
-          <div class="col-md-6 d-flex align-items-stretch" data-aos="<?php echo $fade ?>">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/lp1.jpg" alt="...">
+          <div class="row">
+            <div class="col-lg-12">
+              <?php if ($count == 0) { ?>
+               
+              <div class="col-md-12">
+                <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-block"></i>
+                  <h3>DATA KOSONG</h3>
+                  <!-- <p></p> -->
+                </div>
               </div>
-              <div class="card-body">
-                <h5 class="card-title"><?= Html::a($value->nama_lapangan, ['site/detail-lapangan', 'id' => $value->id]) ?></h5>
-                <p class="card-text">Lokasi : <?= $value->tempat ?></p>
-                <p class="card-text">Harga Sewa / Jam : Rp. <?= number_format($value->harga_sewa) ?></p>
-                <p class="card-text">Jenis lapangan : <?= $value->jenis ?></p>
-              </div>
+
+              <?php } else { ?>
+
+                <?php 
+                  foreach ($model as $key => $value) { 
+
+                    if ($value->status == 'success') {
+                      
+                      $icon = 'bx bx-check';
+                      $color = '#cafcd0';
+
+                    } else if ($value->status == 'pending'){
+
+                      $icon = 'bx bx-loader-alt';
+                      $color = '#cae6fc';
+
+                    } else {
+
+                      $icon = 'bx bx-message-alt-x';
+                      $color = '#fccaca';
+
+                    }
+                ?>
+
+                <div class="col-md-12">
+                  <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100"  style="background-color: <?= $color ?>;">
+                    <i class="<?= $icon ?>"></i>
+                    <h3><?= $value->kode ?> ( <?= $value->status ?> )</h3>
+                    <!-- <p></p> -->
+                  </div>
+                </div>
+
+                <?php } ?>
+
+              <?php } ?>
+
             </div>
           </div>
 
-        <?php } ?>
+          </div>
+            </div>
 
-         
-        </div>
+          </div>
+
+        
 
       </div>
     </section>
+    <!-- End Contact Section -->
 
+    <style>
+      table {
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+        /*text-align: center;*/
+        vertical-align: middle;
+        font-size: 14px;
+      }
+
+      th {
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+        text-align: left;
+        vertical-align: middle;
+        font-size: 14px;
+        width: 50%;
+      }
+
+      td {
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+        text-align: left;
+        vertical-align: middle;
+        font-size: 14px;
+      }
+
+    </style>
 
 
       
-
-
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -131,3 +176,5 @@ $this->params['breadcrumbs'][] = $this->title;
     <script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+
+    

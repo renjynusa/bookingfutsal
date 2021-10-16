@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
               <div class="form-group mt-3">
                 <textarea class="form-control" name="alamat" rows="5" placeholder="Alamat lengkap" required></textarea>
               </div>
-              <
+              
               <div class="text-center"><button class="btn btn-success col-lg-12" type="submit" style="height: 50px; font-size: 20px;">SAVE</button></div>
             <?= Html::endForm() ?>
           </div>
