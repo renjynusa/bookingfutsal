@@ -81,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   <h1><span>Booking</span>-Futsal</h1>
 									<h2>Lapangan Futsal</h2>
 									<p>Lihat daftar lapangan yang dapat di booking sekarang juga. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<?= Html::a('Booking Sekarang !',['site/booking'], ['class' => 'btn btn-lg btn-success']) ?>
 								</div>
 								<div class="col-sm-6">
 									<img src="images/home/futsal4.jpg" class="girl img-responsive" alt="" />
@@ -94,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   <h1><span>Booking</span>-Futsal</h1>
 									<h2>Event Kejuaran</h2>
 									<p>Kami mengadakan event - event kejuaran dimana anda dapat mendaftarkan tim anda dan dapatkan hadiah berupa uang tunai jutaan rupiah !</p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<?= Html::a('Lihat Event !',['site/event'], ['class' => 'btn btn-lg btn-info']) ?>
 								</div>
 								<div class="col-sm-6">
 									<img src="images/home/futsal5.jpg" class="girl img-responsive" alt="" />
@@ -239,6 +239,8 @@ $this->params['breadcrumbs'][] = $this->title;
 				            $daftar = TblLapangan::find()->where(['status' => 'aktif'])->limit(3)->all();
 
 				            foreach ($daftar as $key => $value) {
+
+				            	$img = ($value->foto == '') ? Html::img(Yii::$app->urlManagerBackend->baseUrl.'/empty.jpg') : Html::img(Yii::$app->urlManagerBackend->baseUrl.'/'.$value->foto);
 				            
 				          ?>
 
@@ -246,7 +248,7 @@ $this->params['breadcrumbs'][] = $this->title;
 											<div class="product-image-wrapper">
 												<div class="single-products">
 													<div class="productinfo text-center">
-														<img src="images/home/lp1.jpg" alt="" />
+														<?= $img ?>
 														<h2><?= $value->nama_lapangan ?></h2>
 														<p>Booking <?= $value->nama_lapangan ?></p>
 
@@ -277,13 +279,15 @@ $this->params['breadcrumbs'][] = $this->title;
 				            $daftar = TblLapangan::find()->where(['status' => 'aktif'])->andWhere('id > 3')->all();
 
 				            foreach ($daftar as $key => $value) {
+
+				            	$photo = ($value->foto == '') ? Html::img(Yii::$app->urlManagerBackend->baseUrl.'/empty.jpg') : Html::img(Yii::$app->urlManagerBackend->baseUrl.'/'.$value->foto);
 				            
 				          ?>
 										<div class="col-sm-4">
 											<div class="product-image-wrapper">
 												<div class="single-products">
 													<div class="productinfo text-center">
-														<img src="images/home/lp2.jpg" alt="" />
+														<?= $photo ?>
 														<h2><?= $value->nama_lapangan ?></h2>
 														<p>Booking <?= $value->nama_lapangan ?></p>
 

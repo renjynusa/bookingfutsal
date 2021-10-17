@@ -54,6 +54,13 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        // You can name it whatever you want as it is custom
+        'urlManagerBackend' => [
+            'class' => 'yii\web\urlManager',
+            'baseUrl' => '/bookingfutsal/backend/web/upload/',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
         'user' => [
             'identityClass' => 'frontend\models\Login',
             'enableAutoLogin' => false,

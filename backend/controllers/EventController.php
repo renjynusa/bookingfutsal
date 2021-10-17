@@ -3,10 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\TblLapangan;
-use backend\models\TblLapanganSearch;
-use backend\models\TblLapanganDetail;
-use backend\models\TblLapanganDetailSearch;
+use backend\models\Event;
+use backend\models\EventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -14,9 +12,9 @@ use yii\helpers\Utils;
 use yii\web\UploadedFile;
 
 /**
- * TblLapangannController implements the CRUD actions for TblLapangan model.
+ * EventController implements the CRUD actions for Event model.
  */
-class TblLapanganController extends Controller
+class EventController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -34,12 +32,12 @@ class TblLapanganController extends Controller
     }
 
     /**
-     * Lists all TblLapangan models.
+     * Lists all Event models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TblLapanganSearch();
+        $searchModel = new EventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -48,44 +46,7 @@ class TblLapanganController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single TblLapangan model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-
-        $searchModel = new TblLapanganDetailSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Creates a new TblLapangan model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new TblLapangan();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-     public function actionFoto($id)
+    public function actionFoto($id)
     {
         $model = $this->findModel($id);
 
@@ -102,7 +63,38 @@ class TblLapanganController extends Controller
     }
 
     /**
-     * Updates an existing TblLapangan model.
+     * Displays a single Event model.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    /**
+     * Creates a new Event model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new Event();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Updates an existing Event model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -122,7 +114,7 @@ class TblLapanganController extends Controller
     }
 
     /**
-     * Deletes an existing TblLapangan model.
+     * Deletes an existing Event model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -136,15 +128,15 @@ class TblLapanganController extends Controller
     }
 
     /**
-     * Finds the TblLapangan model based on its primary key value.
+     * Finds the Event model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return TblLapangan the loaded model
+     * @return Event the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = TblLapangan::findOne($id)) !== null) {
+        if (($model = Event::findOne($id)) !== null) {
             return $model;
         }
 

@@ -1,28 +1,29 @@
 <?php
 
-namespace backend\models;
+namespace frontend\models;
 
 use Yii;
 
 /**
- * This is the model class for table "tbl_lapangan".
+ * This is the model class for table "event".
  *
  * @property int $id
- * @property string $kode_lapangan
- * @property string $nama_lapangan
- * @property string $tempat
- * @property int $harga_sewa
- * @property int $jumlah
+ * @property string $nama
+ * @property string $keterangan
+ * @property string $tanggal_mulai
+ * @property string $tanggal_selesai
+ * @property int $biaya_pendaftaran
+ * @property string $hadiah
  * @property string $status
  */
-class TblLapangan extends \yii\db\ActiveRecord
+class Event extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'tbl_lapangan';
+        return 'event';
     }
 
     /**
@@ -31,10 +32,11 @@ class TblLapangan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['kode_lapangan', 'nama_lapangan', 'tempat', 'harga_sewa', 'status'], 'required'],
-            [['tempat', 'status'], 'string'],
-            [['harga_sewa'], 'integer'],
-            [['kode_lapangan', 'nama_lapangan'], 'string', 'max' => 255],
+            [['nama', 'keterangan', 'tanggal_mulai', 'tanggal_selesai', 'biaya_pendaftaran', 'hadiah', 'status'], 'required'],
+            [['keterangan', 'hadiah', 'status'], 'string'],
+            [['tanggal_mulai', 'tanggal_selesai'], 'safe'],
+            [['biaya_pendaftaran'], 'integer'],
+            [['nama'], 'string', 'max' => 255],
             [['foto'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
@@ -46,15 +48,15 @@ class TblLapangan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'kode_lapangan' => 'Kode Lapangan',
-            'nama_lapangan' => 'Nama Lapangan',
-            'tempat' => 'Tempat',
-            'harga_sewa' => 'Harga Sewa (Jam)',
-            // 'jumlah' => 'Jumlah',
+            'nama' => 'Nama',
+            'keterangan' => 'Keterangan',
+            'tanggal_mulai' => 'Tanggal Mulai Pendaftaran',
+            'tanggal_selesai' => 'Tanggal Selesai Pendaftaran',
+            'biaya_pendaftaran' => 'Biaya Pendaftaran',
+            'hadiah' => 'Hadiah',
             'status' => 'Status',
         ];
     }
-
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
@@ -67,7 +69,7 @@ class TblLapangan extends \yii\db\ActiveRecord
                 }
             } else {
                 if (Yii::$app->request->get('id')) {
-                    $foto = TblLapangan::findOne(Yii::$app->request->get('id'));
+                    $foto = Event::findOne(Yii::$app->request->get('id'));
                     $this->foto = $foto->foto ?? "empty.jpg";
                 } else {
                     $this->foto = "empty.jpg";

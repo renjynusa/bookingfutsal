@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nama_detail')->textInput() ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'booked' => 'Booked', 'free' => 'Free', '' => '', ], ['prompt' => '']) ?>
+    <!-- <?= $form->field($model, 'status')->dropDownList([ 'booked' => 'Booked', 'free' => 'Free', '' => '', ], ['prompt' => '']) ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

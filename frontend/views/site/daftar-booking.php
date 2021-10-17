@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                       $icon = 'bx bx-check';
                       $color = '#cafcd0';
 
-                    } else if ($value->status == 'pending'){
+                    } else if ($value->status == 'waiting'){
 
                       $icon = 'bx bx-loader-alt';
                       $color = '#cae6fc';

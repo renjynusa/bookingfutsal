@@ -82,12 +82,15 @@ $this->params['breadcrumbs'][] = $this->title;
               $fade = "fade-right";
             }
 
+            $photo = ($value->foto == '') ? Html::img(Yii::$app->urlManagerBackend->baseUrl.'/empty.jpg') : Html::img(Yii::$app->urlManagerBackend->baseUrl.'/'.$value->foto);
+
+
           ?>
 
           <div class="col-md-6 d-flex align-items-stretch" data-aos="<?php echo $fade ?>">
             <div class="card">
               <div class="card-img">
-                <img src="assets/img/lp1.jpg" alt="...">
+                <?= $photo ?>
               </div>
               <div class="card-body">
                 <h5 class="card-title"><?= Html::a($value->nama_lapangan, ['site/detail-lapangan', 'id' => $value->id]) ?></h5>
@@ -105,6 +108,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
       </div>
     </section>
+
+    <style>
+    .card-img {
+      height: 400px;
+      width: 50%;
+      /*background-color: powderblue;*/
+    }
+    </style>
 
 
 

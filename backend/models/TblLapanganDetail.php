@@ -27,7 +27,7 @@ class TblLapanganDetail extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_lapangan', 'nama_detail', 'status'], 'required'],
+            [['id_lapangan', 'nama_detail'], 'required'],
             [['id_lapangan'], 'integer'],
             [['status', 'nama_detail'], 'string'],
         ];

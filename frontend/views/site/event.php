@@ -5,9 +5,11 @@
 /* @var $model \frontend\models\SignupForm */
 
 use yii\bootstrap\Html;
-use yii\bootstrap\ActiveForm;
+use kartik\form\ActiveForm;
+use kartik\date\DatePicker;
+use frontend\models\TblOrder;
 
-$this->title = 'Signup';
+$this->title = 'Event';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -16,7 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -54,56 +55,119 @@ $this->params['breadcrumbs'][] = $this->title;
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-
+     
     
       <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact section-bg">
-      <div class="container" data-aos="fade-up">
+       <section id="services" class="services section-bg">
+      <div class="container">
 
         <div class="section-title">
-          <h2>REGISTER</h2>
-          <h5>Pastikan anda mengisi data - data yang baik dan benar !</h5>
+          <h2>Event Kejuaraan</h2>
+          <!-- <h5>Sebelum booking lapangan pastikan informasi anda benar dan tidak bertabrakan dengan jadwal yang sudah tertera !</h5> -->
         </div>
 
-        <div class="row">
-          <div class="col-lg-12 mt-4 mt-lg-0">
-            <!-- <form action="forms/contact.php" method="post" role="form" class="php-email-form w-100" data-aos="fade-up"> -->
-            <?= Html::beginForm(['site/signup'], 'post') ?>
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" class="form-control" name="number" id="number" placeholder="No. Handphone / Whatsapp" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Your Password" required>
+          <div class="row">
+            <div class="col-lg-12">
+              <?php if ($count == 0) { ?>
+               
+              <div class="col-md-12" align="center">
+                <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-block"></i>
+                  <h3>TIDAK ADA EVENT</h3>
+                  <!-- <p></p> -->
                 </div>
               </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="alamat" rows="5" placeholder="Alamat lengkap" required></textarea>
-              </div>
-              <
-              <div class="text-center"><button class="btn btn-success col-lg-12" type="submit" style="height: 50px; font-size: 20px;">SAVE</button></div>
-            <?= Html::endForm() ?>
+
+              <?php } else { ?>
+
+                <?php 
+                  foreach ($model as $key => $value) { 
+
+                    $gg = $value->id;
+
+                    if ($gg % 2 == 0)
+                    {
+                      $fade = "fade-left";
+                    } 
+                    else 
+                    {
+                      $fade = "fade-right";
+                    }
+
+                    $photo = ($value->foto == '') ? Html::img(Yii::$app->urlManagerBackend->baseUrl.'/empty.jpg') : Html::img(Yii::$app->urlManagerBackend->baseUrl.'/'.$value->foto);
+
+                ?>
+
+                <div class="col-md-6 d-flex align-items-stretch" data-aos="<?php echo $fade ?>">
+                  <div class="card">
+                    <div class="card-img">
+                      <?= $photo ?>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title"><?= Html::a($value->nama, ['#']) ?></h5>
+                      <p class="card-text">Keterangan : <?= $value->keterangan ?></p>
+                      <p class="card-text">Biaya Pendaftaran : Rp. <?= number_format($value->biaya_pendaftaran) ?></p>
+                      <p class="card-text">Hadiah : <?= $value->hadiah ?></p>
+                      <p class="card-text">Tanggal Pendaftaran : <?= tanggal_indo($value->tanggal_mulai) ?></p>
+                      <p class="card-text">Akhir Pendaftaran : <?= tanggal_indo($value->tanggal_selesai) ?></p>
+                    </div>
+                  </div>
+                </div>
+
+                <?php } ?>
+
+              <?php } ?>
+
+            </div>
           </div>
 
-        </div>
+          </div>
+            </div>
+
+          </div>
+
+        
 
       </div>
-    </section><!-- End Contact Section -->
+    </section>
+    <!-- End Contact Section -->
 
+    <style>
+      table {
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+        /*text-align: center;*/
+        vertical-align: middle;
+        font-size: 14px;
+      }
+
+      th {
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+        text-align: left;
+        vertical-align: middle;
+        font-size: 14px;
+        width: 50%;
+      }
+
+      td {
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+        text-align: left;
+        vertical-align: middle;
+        font-size: 14px;
+      }
+
+    .card-img {
+      height: 400px;
+      width: 50%;
+      /*background-color: powderblue;*/
+    }
+
+    </style>
 
 
       
-
-
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -123,3 +187,5 @@ $this->params['breadcrumbs'][] = $this->title;
     <script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+
+    

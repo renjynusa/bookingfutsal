@@ -17,6 +17,8 @@ use frontend\models\TblPelanggan;
 use frontend\models\TblLapangan;
 use frontend\models\TblLapanganDetail;
 use frontend\models\TblOrder;
+use frontend\models\Event;
+use yii\helpers\Html;
 // use frontend\models\ContactForm;
 
 /**
@@ -125,8 +127,11 @@ class SiteController extends Controller
     {
         $model = TblLapangan::findOne($id);
 
+        $photo = ($model->foto == '') ? Html::img(Yii::$app->urlManagerBackend->baseUrl.'/empty.jpg') : Html::img(Yii::$app->urlManagerBackend->baseUrl.'/'.$model->foto);
+
         return $this->render('detail-lapangan', [
             'model' => $model,
+            'photo' => $photo,
         ]);
     }
 
@@ -174,7 +179,14 @@ class SiteController extends Controller
 
     public function actionEvent()
     {
-        return $this->render('event');
+
+        $model = Event::find()->where(['status' => 'aktif'])->all();
+        $count = Event::find()->where(['status' => 'aktif'])->count();
+
+        return $this->render('event', [
+            'model' => $model,
+            'count' => $count,
+        ]);
     }
 
     public function actionDaftarBooking()
@@ -182,7 +194,7 @@ class SiteController extends Controller
         $model = TblOrder::find()->where(['user_id' => Yii::$app->user->id])->all();
         $count = TblOrder::find()->where(['user_id' => Yii::$app->user->id])->count();
 
-        echo $count;
+        // echo $count;
 
         return $this->render('daftar-booking', [
             'model' => $model,

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use kartik\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\TblLapangan */
@@ -25,6 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+
+        <?= Html::button(
+            '<span class="glyphicon glyphicon-picture"></span> Upload Foto',
+            [
+              'value' => Url::to(['foto', 'id' => $model->id]),
+              'title' => 'Upload Foto Siswa',
+              'class' => 'showModalButton btn btn-success',
+            ]
+          ) ?>
     </p>
 
     <?= DetailView::widget([
@@ -36,6 +46,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'tempat:ntext',
             'harga_sewa',
             // 'jumlah',
+            [
+                'attribute' => 'foto',
+                'value' => $model->foto == '' ? Yii::getAlias('@web/upload') . '/empty.jpg' : Yii::getAlias('@web/upload') . '/' . $model->foto,
+                'format' => ['image', ['width' => '100', 'height' => '100']],
+            ],
             'status',
         ],
     ]) ?>
@@ -53,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\ActionColumn',
                 'header' => 'Actions',
                 'headerOptions' => ['style' => 'color:#337ab7'],
-                'template' => "{view} {update} {delete}",
+                'template' => " {update} {delete}",
                 'buttons' => [
                     'view' => function ($url, $model) {
                         return Html::a('<button class = "btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Detail</button>', $url, [
@@ -101,7 +116,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'tempat:ntext',
             // 'harga_sewa',
             //'jumlah',
-            'status',
+            // 'status',
 
         ],
         'containerOptions' => ['style' => 'overflow: auto'], // only set when $responsive = false

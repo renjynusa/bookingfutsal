@@ -13,7 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tbl-order-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <!-- <h1><?= Html::encode($this->title) ?></h1> -->
+
+    <br><br>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -32,6 +34,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'kode',
             'tgl_order',
+            'tgl_booking',
+            'nama',
+            'telp',
+            'jumlah_jam',
             'time_start',
             'time_end',
             'total_bayar',

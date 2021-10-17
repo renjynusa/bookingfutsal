@@ -4,18 +4,19 @@ use yii\helpers\Html;
 use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\TblOrderSearch */
+/* @var $searchModel backend\models\EventSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Data Order';
+$this->title = 'Events';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tbl-order-index">
+<div class="event-index">
 
-    <h1><?= Html::encode($this->title) ?></h1> 
+    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
+        <?= Html::a('Create Event', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,11 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
             // 'id',
-            'kode',
-            'tgl_order',
-            'time_start',
-            'time_end',
-            //'total_bayar',
+            'nama',
+            // 'keterangan:ntext',
+            'tanggal_mulai',
+            'tanggal_selesai',
+            //'biaya_pendaftaran',
+            //'hadiah:ntext',
             //'status',
 
         ],
@@ -59,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
         //'showPageSummary' => $pageSummary,
         'panel' => [
             'type' => GridView::TYPE_PRIMARY,
-            'heading' => 'Data Order',
+            'heading' => 'Data Event',
         ],
         'persistResize' => false,
         'toggleDataOptions' => ['minCount' => 100],
