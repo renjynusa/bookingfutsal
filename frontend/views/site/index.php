@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use frontend\models\TblLapangan;
+use frontend\models\TblOrder;
 
 
 $this->title = 'Home';
@@ -68,8 +69,13 @@ $this->params['breadcrumbs'][] = $this->title;
 								<div class="col-sm-6">
 									<h1><span>Booking</span>-Futsal</h1>
 									<h2>Booking Lapangan Futsal</h2>
-									<p>Website penyewaan jadwal lapangan futsal ini digunakan untuk memudahkan penyewa mengetahui jadwal lapangan futsal yang kosong, untuk memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</p>
-									<?= Html::a('Daftar Sekarang !',['site/signup'], ['class' => 'btn btn-lg btn-primary']) ?>
+									<p>Website booking futsal ini digunakan untuk memudahkan menyewa lapangan, dan memberikan kemudahan dalam melakukan proses penyewaan jadwal lapangan futsal tanpa harus datang langsung ke tempat futsal.</p>
+									<?php if (Yii::$app->user->isGuest) { ?>
+										<p>
+											<?= Html::a('Login',['site/login'], ['class' => 'btn btn-lg btn-info']) ?>
+											<?= Html::a('Daftar Sekarang !',['site/signup'], ['class' => 'btn btn-lg btn-warning']) ?>
+										</p>
+									<?php } ?>
 								</div>
 								<div class="col-sm-6">
 									<img src="images/home/futsal3.jpg" class="girl img-responsive" alt="" />
@@ -81,7 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   <h1><span>Booking</span>-Futsal</h1>
 									<h2>Lapangan Futsal</h2>
 									<p>Lihat daftar lapangan yang dapat di booking sekarang juga. </p>
-									<?= Html::a('Booking Sekarang !',['site/booking'], ['class' => 'btn btn-lg btn-success']) ?>
+									<?= Html::a('Booking Sekarang !',['site/lapangan'], ['class' => 'btn btn-lg btn-success']) ?>
 								</div>
 								<div class="col-sm-6">
 									<img src="images/home/futsal4.jpg" class="girl img-responsive" alt="" />
@@ -160,6 +166,57 @@ $this->params['breadcrumbs'][] = $this->title;
     </section>
     <!-- End About Section -->
 
+    <div class="recommended_items">
+			<h2 class="title text-center">Jadwal Lapangan</h2>
+			<h4 class="title text-center">Berikut adalah jadwal lapangan yang telah dibooking</h4>
+			
+			<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="item active">
+						<?php 
+
+	            $hari_ini = date('Y-m-d', strtotime('-1 day', strtotime(date('Y-m-d'))));
+							$minggu_depan = date('Y-m-d', strtotime('+1 week', strtotime(date('Y-m-d'))));
+
+							// echo $minggu_depan;
+
+	           while ($hari_ini < $minggu_depan) {
+								$hari_ini = date ("Y-m-d", strtotime("+1 day", strtotime($hari_ini)));
+
+								$arrayData = array();
+	          		$jadwal = TblOrder::find()->where('tgl_booking like "%' . $hari_ini .'%" AND status = "success"')->all();
+	          		foreach ($jadwal as $key => $value) {
+	          			// code...
+	          			$arrayData[] = '<b>'.$value->kode.'</b> : '. $value->time_start .' - '. $value->time_end;
+	          		}
+	          	
+	          		$check = ($arrayData != null) ? implode($arrayData, '<br>') : 'Kosong' ;
+	          		
+	            
+	          ?>
+
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											
+											<h2><?= $hari_ini ?></h2>
+											<p><?= $check ?> </p>
+
+										</div>
+										
+									</div>
+								</div>
+							</div>
+
+						<?php } ?>
+					</div>
+
+					
+				</div>			
+			</div>
+		</div>
+
      <!-- ======= Services Section ======= -->
      <section id="services" class="services section-bg">
       <div class="container">
@@ -173,7 +230,7 @@ $this->params['breadcrumbs'][] = $this->title;
           <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-right">
             <div class="card">
               <div class="card-img">
-                <img src="assets/img/lp1.jpg" alt="...">
+                <img src="images/home/vinyl.jpg" alt="...">
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">Lapangan Futsal Vinyl</a></h5>
@@ -185,7 +242,7 @@ $this->params['breadcrumbs'][] = $this->title;
           <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
             <div class="card">
               <div class="card-img">
-                <img src="assets/img/lp2.jpg" alt="...">
+                <img src="images/home/taraflex.jpg" alt="...">
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">Lapangan Futsal Taraflex</a></h5>
@@ -198,7 +255,7 @@ $this->params['breadcrumbs'][] = $this->title;
           <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-right">
             <div class="card">
               <div class="card-img">
-                <img src="assets/img/lp3.jpg" alt="...">
+                <img src="images/home/sintetis.jpg" alt="...">
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">Lapangan Futsal Rumput Sintetis</a></h5>
@@ -210,7 +267,7 @@ $this->params['breadcrumbs'][] = $this->title;
           <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-left">
             <div class="card">
               <div class="card-img">
-                <img src="assets/img/lp1.jpg" alt="...">
+                <img src="images/home/semen.jpg" alt="...">
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">Lapangan Futsal Semen</a></h5>
@@ -361,6 +418,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
   </footer>
   <!-- End Footer -->
+
+
+  <style>
+  	.card-img {
+  		height: 250px;
+      width: 50%;
+  	}
+  </style>
 
 
 

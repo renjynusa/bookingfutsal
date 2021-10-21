@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <!-- <div class="row"> -->
           <body>
-            <div data-aos="fade-top" style="width:800px; margin:0 auto;">
+            <div data-aos="fade-top">
               <div class="card">
                 <div class="card-img" align="center">
                   <?= $photo ?>
